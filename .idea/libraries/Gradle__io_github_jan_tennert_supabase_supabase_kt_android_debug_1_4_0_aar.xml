@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: io.github.jan-tennert.supabase:supabase-kt-android-debug:1.4.0@aar">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-3/44fd8e6eea53df9ecd8bac1dfb40ff8b/transformed/supabase-kt-debug/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-3/44fd8e6eea53df9ecd8bac1dfb40ff8b/transformed/supabase-kt-debug/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.jan-tennert.supabase/supabase-kt-android-debug/1.4.0/5860a06891b4d32d96ab19d3ae848f003354bd3/supabase-kt-android-debug-1.4.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/io.github.jan-tennert.supabase/supabase-kt-android-debug/1.4.0/28e29b38fa91c3916a26146a883395fc0d62504e/supabase-kt-android-debug-1.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

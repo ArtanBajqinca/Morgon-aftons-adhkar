@@ -1,0 +1,41 @@
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_17\" default=\"true\" project-jdk-name=\"jbr-17\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	
++++ b/.idea/misc.xml	
+@@ -1,4 +1,3 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
+Index: app/src/main/java/artan/bajqinca/morgon_afton_dhikr/main/MainActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package artan.bajqinca.morgon_afton_dhikr.main\n\nimport android.os.Bundle\nimport androidx.activity.ComponentActivity\nimport androidx.activity.compose.setContent\nimport androidx.compose.foundation.layout.fillMaxSize\nimport androidx.compose.material3.MaterialTheme\nimport androidx.compose.material3.Surface\nimport androidx.compose.material3.Text\nimport androidx.compose.runtime.Composable\nimport androidx.compose.ui.Modifier\n\nclass MainActivity : ComponentActivity() {\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContent {\n            MyApp {\n                Greeting(\"Android\")\n            }\n        }\n    }\n}\n\n@Composable\nfun MyApp(content: @Composable () -> Unit) {\n    MaterialTheme {\n        Surface(modifier = Modifier.fillMaxSize()) {\n            content()\n        }\n    }\n}\n\n@Composable\nfun Greeting(name: String) {\n    Text(text = \"Hello, $name!\")\n}\n
+===================================================================
+diff --git a/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/main/MainActivity.kt b/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/main/MainActivity.kt
+--- a/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/main/MainActivity.kt	
++++ b/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/main/MainActivity.kt	
+@@ -9,6 +9,7 @@
+ import androidx.compose.material3.Text
+ import androidx.compose.runtime.Composable
+ import androidx.compose.ui.Modifier
++import androidx.compose.ui.tooling.preview.Preview
+ 
+ class MainActivity : ComponentActivity() {
+     override fun onCreate(savedInstanceState: Bundle?) {
+@@ -34,3 +35,11 @@
+ fun Greeting(name: String) {
+     Text(text = "Hello, $name!")
+ }
++
++@Preview(showBackground = true)
++@Composable
++fun DefaultPreview() {
++    MyApp {
++        Greeting("Android")
++    }
++}
