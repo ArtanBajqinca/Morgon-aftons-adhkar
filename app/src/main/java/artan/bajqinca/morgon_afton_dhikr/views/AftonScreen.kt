@@ -1,4 +1,4 @@
-package artan.bajqinca.morgon_afton_dhikr.screens
+package artan.bajqinca.morgon_afton_dhikr.views
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -23,47 +23,15 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
+import artan.bajqinca.morgon_afton_dhikr.navigation.Screen
+import artan.bajqinca.morgon_afton_dhikr.views.components.CustomTopBar
 
 @Composable
 fun AftonScreen(navController: NavController = rememberNavController()) {
-
-    Column (
-        modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-    ) {
-        Text(
-            text = "Afton Screen",
-            style = TextStyle(
-                fontFamily = AvenirFontFamily,
-                fontWeight = FontWeight(600),
-                fontSize = 24.sp,
-                color = Color.Black
-            ),
-            modifier = Modifier.padding(top = 32.dp)
-        )
-    }
-
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center,
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(16.dp)
+        modifier = Modifier.fillMaxSize()
     ) {
-        Button(
-            onClick = { navController.navigate(Screen.StartScreen.route) },
-            shape = RoundedCornerShape(12.dp),
-            colors = ButtonDefaults.buttonColors(
-                containerColor = Color.Black
-            )
-        ) {
-            Text(
-                text = "Go to Start screen",
-                color = Color.White,
-                fontSize = 14.sp,
-                modifier = Modifier.padding(6.dp)
-            )
-        }
+        CustomTopBar(navController, title = "Aftons adhkar")
     }
 }
 
