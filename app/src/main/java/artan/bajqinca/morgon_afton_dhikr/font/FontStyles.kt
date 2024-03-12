@@ -10,8 +10,14 @@ import androidx.compose.ui.unit.sp
 import artan.bajqinca.morgon_afton_dhikr.R
 
 val AvenirRoundedFontFamily = FontFamily(
-    Font(R.font.avenir_rounded_normal, FontWeight.Normal),
-    Font(R.font.avenir_rounded_bold, FontWeight.Bold)
+    Font(R.font.avenir_bold),
+    Font(R.font.avenir_demi),
+    Font(R.font.avenir_regular),
+    Font(R.font.avenir_light),
+    Font(R.font.avenir_ultra_light),
+    Font(R.font.lora_bold),
+    Font(R.font.noto_sans_arabic_extra_bold),
+    Font(R.font.me_quran)
 )
 
 val AvenirTypography = Typography(
@@ -31,6 +37,12 @@ val AvenirTypography = Typography(
         fontFamily = AvenirRoundedFontFamily,
         fontWeight = FontWeight.Bold,
         fontSize = 30.sp,
+        color = Color(0xFFD9D9D9)
+    ),
+    displaySmall = TextStyle(
+        fontFamily = AvenirRoundedFontFamily,
+        fontWeight = FontWeight.Bold,
+        fontSize = 20.sp,
         color = Color(0xFFD9D9D9)
     ),
     displayMedium = TextStyle(
