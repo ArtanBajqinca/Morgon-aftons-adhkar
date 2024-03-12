@@ -9,52 +9,57 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import artan.bajqinca.morgon_afton_dhikr.R
 
-val AvenirRoundedFontFamily = FontFamily(
-    Font(R.font.avenir_bold),
-    Font(R.font.avenir_demi),
-    Font(R.font.avenir_regular),
-    Font(R.font.avenir_light),
-    Font(R.font.avenir_ultra_light),
-    Font(R.font.lora_bold),
-    Font(R.font.noto_sans_arabic_extra_bold),
+val AvenirFontFamily = FontFamily(
+    Font(R.font.avenir_bold, FontWeight.Bold),
+    Font(R.font.avenir_demi, FontWeight.W600),
+    Font(R.font.avenir_regular, FontWeight.Normal),
+    Font(R.font.avenir_light, FontWeight.Light),
+    Font(R.font.avenir_ultra_light, FontWeight.ExtraLight),
+)
+
+val AvenirRegular = FontFamily(Font(R.font.avenir_regular))
+
+val LoraFont = FontFamily(
+    Font(R.font.lora_bold)
+)
+
+val MeQuranFont = FontFamily(
     Font(R.font.me_quran)
+)
+
+val NotoSansArabicFont = FontFamily(
+    Font(R.font.noto_sans_arabic_extra_bold),
 )
 
 val AvenirTypography = Typography(
     titleSmall = TextStyle(
-        fontFamily = AvenirRoundedFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontFamily = AvenirFontFamily,
         fontSize = 12.sp,
-        color = Color(0xFFD9D9D9)
+        color = Color.Black
     ),
     titleMedium = TextStyle(
-        fontFamily = AvenirRoundedFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontFamily = AvenirFontFamily,
         fontSize = 24.sp,
         color = Color(0xFFD9D9D9)
     ),
     titleLarge = TextStyle(
-        fontFamily = AvenirRoundedFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontFamily = AvenirFontFamily,
         fontSize = 30.sp,
-        color = Color(0xFFD9D9D9)
+        color = Color.Black
     ),
     displaySmall = TextStyle(
-        fontFamily = AvenirRoundedFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontFamily = AvenirFontFamily,
         fontSize = 20.sp,
-        color = Color(0xFFD9D9D9)
+        color = Color.Black
     ),
     displayMedium = TextStyle(
-        fontFamily = AvenirRoundedFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontFamily = AvenirFontFamily,
         fontSize = 20.sp,
-        color = Color(0xFFD9D9D9)
+        color = Color.Black
     ),
     displayLarge = TextStyle(
-        fontFamily = AvenirRoundedFontFamily,
-        fontWeight = FontWeight.Bold,
+        fontFamily = AvenirFontFamily,
         fontSize = 40.sp,
-        color = Color(0xFFD9D9D9)
+        color = Color.Black
     ),
 )
