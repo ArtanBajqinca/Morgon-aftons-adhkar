@@ -29,55 +29,51 @@ import artan.bajqinca.morgon_afton_dhikr.views.components.ImageBtn
 
 @Composable
 fun StartScreen(navController: NavController = rememberNavController()) {
-    Column (
-        modifier = Modifier.fillMaxSize(),
-    ) {
-        Column() {
+    Column() {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .background(Color(0xFFBE741A)),
+            contentAlignment = Alignment.Center
+        ) {
+            ImageBtn(
+                image = R.drawable.morgon_image_btn,
+                onClick = { navController.navigate(Screen.MorgonScreen.route) }
+            )
             Box(
                 modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .background(Color(0xFFBE741A)),
-                contentAlignment = Alignment.Center
+                    .align(Alignment.TopStart)
+                    .offset(y = 80.dp)
+                    .offset(x = (-20).dp)
+                    .height(48.dp)
+                    .width(100.dp)
+                    .shadow(10.dp, shape = RoundedCornerShape(8.dp))
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(colorResource(id = R.color.gray))
+                    .padding(end = 14.dp),
+                contentAlignment = Alignment.CenterEnd
             ) {
-                ImageBtn(
-                    image = R.drawable.morgon_image_btn,
-                    onClick = { navController.navigate(Screen.MorgonScreen.route) }
-                )
-                Box(
+                Image(
+                    painter = painterResource(id = R.drawable.hamburger_icon),
+                    contentDescription = "Hamburger Icon",
                     modifier = Modifier
-                        .align(Alignment.TopStart)
-                        .offset(y = 80.dp)
-                        .offset(x = (-20).dp)
-                        .height(48.dp)
-                        .width(100.dp)
-                        .shadow(10.dp, shape = RoundedCornerShape(8.dp))
-                        .clip(RoundedCornerShape(8.dp))
-                        .background(colorResource(id = R.color.gray))
-                        .padding(end = 14.dp),
-                    contentAlignment = Alignment.CenterEnd
-                ) {
-                    Image(
-                        painter = painterResource(id = R.drawable.hamburger_icon),
-                        contentDescription = "Hamburger Icon",
-                        modifier = Modifier
-                            .width(25.dp)
-                    )
-                }
-            }
-            Box(
-                modifier = Modifier
-                    .weight(1f)
-                    .fillMaxWidth()
-                    .background(colorResource(id = R.color.blue)),
-                contentAlignment = Alignment.Center
-            ) {
-
-                ImageBtn(
-                    image = R.drawable.afton_image_btn,
-                    onClick = { navController.navigate(Screen.AftonScreen.route) }
+                        .width(25.dp)
                 )
             }
+        }
+        Box(
+            modifier = Modifier
+                .weight(1f)
+                .fillMaxWidth()
+                .background(colorResource(id = R.color.blue)),
+            contentAlignment = Alignment.Center
+        ) {
+
+            ImageBtn(
+                image = R.drawable.afton_image_btn,
+                onClick = { navController.navigate(Screen.AftonScreen.route) }
+            )
         }
     }
 }

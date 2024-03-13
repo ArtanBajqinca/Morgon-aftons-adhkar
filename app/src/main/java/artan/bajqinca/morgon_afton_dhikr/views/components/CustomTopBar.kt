@@ -35,7 +35,7 @@ fun CustomTopBar(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .height(80.dp)
+            .height(70.dp)
             .background(colorResource(id = R.color.gray)),
         verticalAlignment = Alignment.CenterVertically
     ) {

@@ -9,28 +9,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e9de02-cfe3-48cb-9e97-a8d177dd188b" name="Changes" comment="Add fonts, images, icons, and simple navigation through three screens">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/CustomTopBar.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/ImageBtn.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/arrow_icon.png" afterDir="false" />
+    <list default="true" id="59e9de02-cfe3-48cb-9e97-a8d177dd188b" name="Changes" comment="Add custom topbar for afton and morgon screen, add folder Composables.">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarCard.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarTitleDesc.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/deploymentTargetDropDown.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules/app/morgon-afton-dhikr.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/morgon-afton-dhikr.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Navigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Navigation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/screens/AftonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/screens/MorgonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/screens/Screen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Screen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/screens/SplashScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/SplashScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/screens/StartScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/StartScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/ui/theme/Color.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/ui/theme/Theme.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/ui/theme/Type.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/splash_bg.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable/splash_bg.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/StartScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/StartScreen.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/CustomTopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/CustomTopBar.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -308,13 +298,21 @@
       <option name="project" value="LOCAL" />
       <updated>1710247806579</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Add custom topbar for afton and morgon screen, add folder Composables.">
+      <created>1710284975096</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1710284975097</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="main update" />
     <MESSAGE value="Add fonts to res/font folder, update FontStyles.kt with the added fonts" />
     <MESSAGE value="Add fonts, images, icons, and simple navigation through three screens" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add fonts, images, icons, and simple navigation through three screens" />
+    <MESSAGE value="Add custom topbar for afton and morgon screen, add folder Composables." />
+    <option name="LAST_COMMIT_MESSAGE" value="Add custom topbar for afton and morgon screen, add folder Composables." />
   </component>
 </project>
