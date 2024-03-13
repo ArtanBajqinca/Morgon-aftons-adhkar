@@ -35,7 +35,7 @@ fun SplashScreen(navController: NavController = rememberNavController()) {
                 easing = { OvershootInterpolator(2f).getInterpolation(it) }
             )
         )
-        delay(1700L)
+        delay(800L)
         navController.navigate(Screen.StartScreen.route)
     }
 
