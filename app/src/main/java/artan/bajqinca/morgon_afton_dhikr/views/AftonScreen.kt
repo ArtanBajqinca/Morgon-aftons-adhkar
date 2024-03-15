@@ -1,38 +1,20 @@
 package artan.bajqinca.morgon_afton_dhikr.views
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
-import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
-import artan.bajqinca.morgon_afton_dhikr.navigation.Screen
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
 import artan.bajqinca.morgon_afton_dhikr.views.components.CustomTopBar
+import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
 
 @Composable
 fun AftonScreen(navController: NavController = rememberNavController()) {
@@ -52,24 +34,17 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                     arabicText = "أصْبَحْنَا وَأصْبَحَ الـمُلْكُ لِلَّـهِ، وَالـحَمْدُ لِلَّـهِ، لا إلهَ إلاَّ اللهُ وَحْدَهُ لا شَرِيْكَ لَهُ، لَهُ الـمُلْكُ، ولَهُ الـحَمْدُ، وهُوَ عَلَى كُلِّ شَيءٍ قَدِيرٌ، رَبِّ أسْألُكَ خَيْرَ مَا في هَذَا اليَوْمِ وَخَيْرَ مَا بَعْدَهُ، وأَعُوذُ بِكَ مِنْ شَرِّ مَا فِي هَذَا اليَوْمِ وَشَرِّ مَا بَعْدَهُ، رَبِّ أعُوذُ بِكَ مِنَ الكَسَلِ، وسُوءِ الكِبَرِ، رَبِّ أعُوذُ بِكَ مِنْ عَذَابٍ فِي النَّارِ وعَذَابٍ فِي القَبْرِ",
                     transliteration = "Asbahnâ wa asbahal-mulku lillâh walhamdu lillâh, lâ ilâha illallâhu wahdahu lâ sharîka lah, lahul-mulku wa lahul-hamdu wa Huwa 'alâ kulli shay´in qadîr. Rabbi as´aluka khayra mâ fî hâthal-yawm wa khayra mâ ba'da wa a'ûthu bika min sharri mâ fî hâthal-yawmi wa sharri mâ ba'da, Rabbi a'ûthu bika minal-kasal, wa sû´il-kibar, Rabbi a'ûthu bika min 'athâbin fin-nâri wa 'athâbin fil-qabr.",
                     source = "Muslim 4/2088 nr 2723",
+                    numberBackgroundColor = colorResource(id = R.color.blue),
                 ) {}
-
                 AdhkarCard(
                     number = 2,
                     swedishText = "Allah! Med Din välsignelse träder vi in i dagen, och med Din välsignelse träder vi in i kvällen. Med Din välsignelse lever vi och dör vi, och till Dig återuppstår vi på Domedagen.",
                     arabicText = "اللَّهُمَّ بِكَ أصْبَحْنَا، وبِكَ أمْسَيْنَا، وَبِكَ نَحْيَا، وَبِكَ نَمُوتُ، وإلَيْكَ النُّشُورُ",
                     transliteration = "Allahumma bika asbahnâ, wa bika amsaynâ, wa bika nahyâ, wa bika namût wa ilaykan-nushûr.",
                     source = "At-Tirmidhî 5/466 nr 3391",
+                    numberBackgroundColor = colorResource(id = R.color.blue),
                 ) {}
-
-                Spacer(modifier = Modifier.height(40.dp))
-                Box(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .height(10.dp)
-                        .background(colorResource(id = R.color.extra_light_beige))
-                )
-                Spacer(modifier = Modifier.height(40.dp))
+                EndOfScreen()
             }
         }
     }

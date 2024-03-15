@@ -23,13 +23,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
-import artan.bajqinca.morgon_afton_dhikr.navigation.Screen
+import artan.bajqinca.morgon_afton_dhikr.navigation.ScreenRoutes
 
 @Composable
 fun CustomTopBar(
     navController: NavController,
     title: String,
-    onBackClick: () -> Unit = { navController.navigate(Screen.StartScreen.route) },
+    onBackClick: () -> Unit = { navController.navigate(ScreenRoutes.StartScreen.route) },
     onMenuClick: () -> Unit = {}
 ) {
     Row(

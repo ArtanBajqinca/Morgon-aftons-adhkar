@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <style name="Theme.Morgonaftondhikr" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.Morgonaftondhikr" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- Set navigation bar color to gray -->
+        <item name="android:navigationBarColor">@color/gray</item>
+    </style>
 </resources>

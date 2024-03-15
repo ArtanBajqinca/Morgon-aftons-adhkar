@@ -21,7 +21,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import artan.bajqinca.morgon_afton_dhikr.R
@@ -35,9 +34,9 @@ fun AdhkarCard(
     arabicText: String,
     transliteration: String,
     source: String,
-    onSeeRewardClick: () -> Unit
+    numberBackgroundColor: Color,
+    onSeeRewardClick: () -> Unit,
 ) {
-
     Spacer(modifier = Modifier.height(40.dp))
 
     Box(
@@ -46,7 +45,6 @@ fun AdhkarCard(
             .height(10.dp)
             .background(colorResource(id = R.color.extra_light_beige))
     )
-
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -54,7 +52,6 @@ fun AdhkarCard(
     ) {
         Spacer(modifier = Modifier.height(40.dp))
 
-        // Number indicator
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -66,12 +63,12 @@ fun AdhkarCard(
                     .width(38.dp)
                     .height(38.dp)
                     .clip(RoundedCornerShape(7.dp))
-                    .background(colorResource(id = R.color.light_orange)),
+                    .background(numberBackgroundColor)
+                    .padding(top = 4.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
                     text = number.toString(),
-                    modifier = Modifier.padding(top = 4.dp),
                     style = TextStyle(
                         fontFamily = AvenirFontFamily,
                         fontWeight = FontWeight.W600,
@@ -83,14 +80,13 @@ fun AdhkarCard(
         }
         Spacer(modifier = Modifier.height(30.dp))
 
-        // Swedish text
         Text(
-            text = "$swedishText",
+            text = swedishText,
             style = TextStyle(
                 fontFamily = AvenirFontFamily,
                 fontSize = 19.sp,
                 fontWeight = FontWeight.W600,
-                lineHeight = 26.sp,
+                lineHeight = 25.sp,
                 color = colorResource(id = R.color.gray)
             )
         )
@@ -115,13 +111,12 @@ fun AdhkarCard(
                 fontFamily = AvenirFontFamily,
                 fontSize = 19.sp,
                 fontWeight = FontWeight.W600,
-                lineHeight = 26.sp,
+                lineHeight = 25.sp,
                 color = colorResource(id = R.color.gray)
             )
         )
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Source and "se belöning" button
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
@@ -137,37 +132,25 @@ fun AdhkarCard(
                 )
             )
             Spacer(modifier = Modifier.width(20.dp))
-            Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Color(0xFFBEB283))
-                    .clickable { onSeeRewardClick() }
-                    .padding(horizontal = 10.dp, vertical = 5.dp)
-                    .padding(top = 4.dp),
-            ) {
-                Text(
-                    text = "LÄS BELÖNING".uppercase(),
-                    style = TextStyle(
-                        fontFamily = AvenirFontFamily,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = colorResource(id = R.color.light_beige)
-                    )
-                )
-            }
+
+//                Box(
+//                    modifier = Modifier
+//                        .clip(RoundedCornerShape(10.dp))
+//                        .background(Color(0xFFBEB283))
+//                        .clickable { onSeeRewardClick() }
+//                        .padding(horizontal = 10.dp, vertical = 5.dp)
+//                        .padding(top = 4.dp),
+//                ) {
+//                    Text(
+//                        text = "LÄS BELÖNING".uppercase(),
+//                        style = TextStyle(
+//                            fontFamily = AvenirFontFamily,
+//                            fontSize = 14.sp,
+//                            fontWeight = FontWeight.Bold,
+//                            color = colorResource(id = R.color.light_beige)
+//                        )
+//                    )
         }
     }
 }
 
-@Preview
-@Composable
-fun PreviewAdhkarCard() {
-    AdhkarCard(
-        number = 1,
-        swedishText = "In the name of Allah, the Entirely Merciful, the Especially Merciful.",
-        arabicText = "بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ",
-        transliteration = "Bismillahir-Rahmanir-Rahim",
-        source = "Sahih International",
-        onSeeRewardClick = {}
-    )
-}

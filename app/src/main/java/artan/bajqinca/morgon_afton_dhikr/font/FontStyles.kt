@@ -17,8 +17,6 @@ val AvenirFontFamily = FontFamily(
     Font(R.font.avenir_ultra_light, FontWeight.ExtraLight),
 )
 
-val AvenirRegular = FontFamily(Font(R.font.avenir_regular))
-
 val LoraFont = FontFamily(
     Font(R.font.lora_bold)
 )

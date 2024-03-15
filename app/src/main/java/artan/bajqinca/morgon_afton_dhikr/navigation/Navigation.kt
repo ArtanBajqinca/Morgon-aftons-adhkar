@@ -13,30 +13,19 @@ import artan.bajqinca.morgon_afton_dhikr.views.SplashScreen
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = Screen.SplashScreen.route) {
-        composable(route = Screen.StartScreen.route) {
-            StartScreen(
-                navController
-            )
+    NavHost(navController = navController, startDestination = ScreenRoutes.StartScreen.route) {
 
+        composable(route = ScreenRoutes.StartScreen.route) {
+            StartScreen(navController)
         }
-
-        composable(route = Screen.MorgonScreen.route) {
-            MorgonScreen(
-                navController
-            )
+        composable(route = ScreenRoutes.MorgonScreen.route) {
+            MorgonScreen(navController)
         }
-
-        composable(route = Screen.AftonScreen.route) {
-            AftonScreen(
-                navController
-            )
+        composable(route = ScreenRoutes.AftonScreen.route) {
+            AftonScreen(navController)
         }
-
-        composable(route = Screen.SplashScreen.route) {
-            SplashScreen(
-                navController
-            )
+        composable(route = ScreenRoutes.SplashScreen.route) {
+            SplashScreen(navController)
         }
     }
 }

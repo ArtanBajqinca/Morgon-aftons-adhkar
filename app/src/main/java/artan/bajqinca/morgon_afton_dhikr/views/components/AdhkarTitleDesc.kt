@@ -70,7 +70,6 @@ fun AdhkarTitleDesc(arabicText: String, descriptionText: String) {
                 textAlign = TextAlign.Center
             )
         }
-
     }
 }
 
