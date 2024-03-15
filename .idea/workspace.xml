@@ -9,54 +9,18 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e9de02-cfe3-48cb-9e97-a8d177dd188b" name="Changes" comment="change app name &amp; add favicon">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/model/AdkarModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/viewModel/AdhkarViewModel.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/DrawerContent.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/EndOfScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/StartSettingsTab.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+    <list default="true" id="59e9de02-cfe3-48cb-9e97-a8d177dd188b" name="Changes" comment="Add basic StartScreen.kt settings drawer">
       <change beforePath="$PROJECT_DIR$/.idea/modules/app/morgon-afton-dhikr.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/morgon-afton-dhikr.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/ic_launcher-playstore.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/font/FontStyles.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/font/FontStyles.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Navigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Navigation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Screen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/ScreenRoutes.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/SplashScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/SplashScreen.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/StartScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/StartScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarTitleDesc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarTitleDesc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/CustomTopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/CustomTopBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-mdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_foreground.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/StartSettingsTab.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/StartSettingsTab.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[/Users/artan/.android/avd/Pixel_7_Pro_API_33.avd]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[qsfq7t5t8l6t4lbq]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -347,7 +311,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710349231292</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add basic StartScreen.kt settings drawer">
+      <created>1710494577972</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1710494577972</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -357,7 +328,8 @@
     <MESSAGE value="Add custom topbar for afton and morgon screen, add folder Composables." />
     <MESSAGE value="Add AdhkarCard composable" />
     <MESSAGE value="change app name &amp; add favicon" />
-    <option name="LAST_COMMIT_MESSAGE" value="change app name &amp; add favicon" />
+    <MESSAGE value="Add basic StartScreen.kt settings drawer" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add basic StartScreen.kt settings drawer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

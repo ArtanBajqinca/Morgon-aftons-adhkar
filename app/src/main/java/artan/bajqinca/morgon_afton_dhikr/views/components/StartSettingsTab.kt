@@ -31,6 +31,7 @@ fun StartSettingsTab(onClick: () -> Unit) {
             .shadow(10.dp, shape = RoundedCornerShape(8.dp))
             .clip(RoundedCornerShape(8.dp))
             .background(colorResource(id = R.color.gray))
+            .clickable(onClick = onClick)
             .padding(end = 14.dp),
         contentAlignment = Alignment.CenterEnd
     ) {
@@ -39,7 +40,6 @@ fun StartSettingsTab(onClick: () -> Unit) {
             contentDescription = "Hamburger Icon",
             modifier = Modifier
                 .size(24.dp)
-                .clickable(onClick = onClick)
         )
     }
 }
