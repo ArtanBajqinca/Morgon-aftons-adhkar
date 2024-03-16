@@ -1,6 +1,5 @@
 package artan.bajqinca.morgon_afton_dhikr.views.components
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -10,9 +9,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
@@ -26,16 +23,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.compose.ui.window.Dialog
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
+import artan.bajqinca.morgon_afton_dhikr.font.AvenirTypography
 import artan.bajqinca.morgon_afton_dhikr.font.MeQuranFont
 
 @Composable
@@ -103,15 +97,18 @@ fun AdhkarCard(
 
         Text(
             text = swedishText,
-            style = TextStyle(
-                fontFamily = AvenirFontFamily,
-                fontSize = 19.sp,
-                fontWeight = FontWeight.W600,
-                lineHeight = 25.sp,
-                color = colorResource(id = R.color.gray)
-            )
+            style = AvenirTypography.titleMedium,
+            color = colorResource(id = R.color.gray)
         )
-        Spacer(modifier = Modifier.height(15.dp))
+        Spacer(modifier = Modifier.height(30.dp))
+
+        // Transliteration
+        Text(
+            text = transliteration,
+            style = AvenirTypography.titleMedium,
+            color = colorResource(id = R.color.gray)
+        )
+        Spacer(modifier = Modifier.height(20.dp))
 
         // Arabic text
         Text(
@@ -120,19 +117,6 @@ fun AdhkarCard(
                 fontFamily = MeQuranFont,
                 fontSize = 27.sp,
                 lineHeight = 45.sp,
-                color = colorResource(id = R.color.gray)
-            )
-        )
-        Spacer(modifier = Modifier.height(20.dp))
-
-        // Transliteration
-        Text(
-            text = transliteration,
-            style = TextStyle(
-                fontFamily = AvenirFontFamily,
-                fontSize = 19.sp,
-                fontWeight = FontWeight.W600,
-                lineHeight = 25.sp,
                 color = colorResource(id = R.color.gray)
             )
         )
@@ -175,15 +159,5 @@ fun AdhkarCard(
         }
     }
 }
-
-
-
-//
-////show reward dialog prevview
-//@Preview(showBackground = true)
-//@Composable
-//fun PreviewShowRewardDialog() {
-//    ShowRewardDialog(rewardText = "Vem som än säger detta på morgonen och tror på det och dör samma dag, kommer att tillhöra paradiset. Och vem som än säger detta på kvällen och tror på det och dör samma natt, kommer att tillhöra paradiset.") {}
-//}
 
 

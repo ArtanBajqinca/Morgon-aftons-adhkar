@@ -65,7 +65,8 @@ fun AdhkarTitleDesc(arabicText: String, descriptionText: String) {
                     fontWeight = FontWeight(400),
                     fontSize = 17.sp,
                     color = colorResource(id = R.color.gray),
-                    lineHeight = 20.sp
+                    lineHeight = 20.sp,
+                    letterSpacing = 0.5.sp
                 ),
                 textAlign = TextAlign.Center
             )

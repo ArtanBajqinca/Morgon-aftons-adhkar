@@ -5,4 +5,6 @@ sealed class ScreenRoutes(val route: String){
     object StartScreen: ScreenRoutes("home_screen")
     object MorgonScreen: ScreenRoutes("morgon_screen")
     object AftonScreen: ScreenRoutes("afton_screen")
+    object TimesScreen: ScreenRoutes("times_screen")
+    object RewardScreen: ScreenRoutes("reward_screen")
 }

@@ -38,8 +38,7 @@ fun ShowRewardDialog(
             modifier = Modifier
                 .fillMaxWidth()
         ) {
-            Column(
-            ) {
+            Column {
                 Box(
                     modifier = Modifier
                         .align(Alignment.CenterHorizontally)
@@ -78,8 +77,6 @@ fun ShowRewardDialog(
                     )
                     .padding(8.dp)
                     .align(Alignment.TopEnd)
-
-
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.x),

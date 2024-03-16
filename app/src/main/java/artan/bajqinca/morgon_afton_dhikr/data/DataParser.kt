@@ -4,28 +4,28 @@ import artan.bajqinca.morgon_afton_dhikr.model.AdkarModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.IOException
+import java.lang.reflect.Type
 
 class DataParser(private val context: Context) {
 
-    fun getMorningAdhkarList(): List<AdkarModel> {
-        return parseJsonData("AdhkarMorgon.json")
-    }
+    private val gson: Gson by lazy { Gson() }
 
-    private fun parseJsonData(filename: String): List<AdkarModel> {
-        val jsonFileString = getJsonDataFromAsset(filename)
-        val gson = Gson()
-        val listType = object : TypeToken<List<AdkarModel>>() {}.type
-        return gson.fromJson(jsonFileString, listType)
+    fun getMorningAdhkarList(): List<AdkarModel> = parseJsonData("adhkar_afton.json")
+
+    fun getEveningAdhkarList(): List<AdkarModel> = parseJsonData("adhkar_morgon.json")
+
+    private inline fun <reified T> parseJsonData(filename: String): T {
+        val jsonFileString = getJsonDataFromAsset(filename) ?: return emptyList<T>() as T
+        val type: Type = object : TypeToken<T>() {}.type
+        return gson.fromJson(jsonFileString, type)
     }
 
     private fun getJsonDataFromAsset(fileName: String): String? {
-        val jsonString: String
-        try {
-            jsonString = context.assets.open(fileName).bufferedReader().use { it.readText() }
+        return try {
+            context.assets.open(fileName).bufferedReader().use { it.readText() }
         } catch (ioException: IOException) {
-            Log.e("DataParser", "getJsonDataFromAsset: ERROR", ioException)
-            return "[]"
+            Log.e("DataParser", "Error reading from $fileName", ioException)
+            null
         }
-        return jsonString
     }
 }

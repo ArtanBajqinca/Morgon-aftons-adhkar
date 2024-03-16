@@ -27,7 +27,9 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
+import artan.bajqinca.morgon_afton_dhikr.navigation.ScreenRoutes
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
 
 @Composable
 fun DrawerContentStart(
@@ -79,7 +81,31 @@ fun DrawerContentStart(
                             .align(Alignment.CenterHorizontally)
                             .padding(top = 8.dp)
                     )
-                    Spacer( modifier = Modifier.height(400.dp))
+                    Spacer(modifier = Modifier.height(47.dp))
+
+                    StartSettingsButton(
+                        buttonText = "Tiderna för morgon & afton",
+                        settingsIcon = R.drawable.time_icon,
+                        buttonBackgroundColor = R.color.light_orange,
+                        onClick = {
+                            coroutineScope.launch {
+                                navController.navigate(ScreenRoutes.TimesScreen.route)
+                            }
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(30.dp))
+
+                    StartSettingsButton(
+                        buttonText = "Fördelarna med adhkar",
+                        settingsIcon = R.drawable.hand_star_icon,
+                        buttonBackgroundColor = R.color.blue,
+                        onClick = {
+                            coroutineScope.launch {
+                                navController.navigate(ScreenRoutes.RewardScreen.route)
+                            }
+                        }
+                    )
+                    Spacer(modifier = Modifier.height(190.dp))
                     Image(
                         painter = painterResource(id = R.drawable.ayah_graphic),
                         contentDescription = "Ayah Graphic",

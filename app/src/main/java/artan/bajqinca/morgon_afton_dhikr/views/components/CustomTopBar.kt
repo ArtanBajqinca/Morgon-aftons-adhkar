@@ -76,9 +76,9 @@ fun CustomTopBar(
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(id = R.drawable.hamburger_icon),
+                painter = painterResource(id = R.drawable.setting_icon),
                 contentDescription = "Menu icon",
-                modifier = Modifier.width(25.dp)
+                modifier = Modifier.width(35.dp)
             )
         }
         Spacer(modifier = Modifier.weight(1f))

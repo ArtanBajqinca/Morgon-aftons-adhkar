@@ -10,12 +10,10 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
-import artan.bajqinca.morgon_afton_dhikr.model.AdkarModel
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
 import artan.bajqinca.morgon_afton_dhikr.views.components.CustomTopBar
@@ -34,13 +32,11 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
         ModalNavigationDrawer(
             drawerState = drawerState,
             drawerContent = {
-                // Wrap drawer content to switch back to LTR for the content only
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
                     DrawerContentAdhkarScreen(navController, drawerState, coroutineScope)
                 }
             }
         ) {
-            // Your main content should likely remain in LTR
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
                 Column(modifier = Modifier.fillMaxSize()) {
                     CustomTopBar(
@@ -53,9 +49,7 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                             }
                         }
                     )
-
                     LazyColumn {
-
                         item {
                             AdhkarTitleDesc(
                                 arabicText = "اذكار الصباح",

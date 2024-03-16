@@ -7,7 +7,9 @@ import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.views.StartScreen
 import artan.bajqinca.morgon_afton_dhikr.views.MorgonScreen
 import artan.bajqinca.morgon_afton_dhikr.views.AftonScreen
+import artan.bajqinca.morgon_afton_dhikr.views.RewardScreen
 import artan.bajqinca.morgon_afton_dhikr.views.SplashScreen
+import artan.bajqinca.morgon_afton_dhikr.views.TimesScreen
 
 @Composable
 fun Navigation() {
@@ -26,6 +28,12 @@ fun Navigation() {
         }
         composable(route = ScreenRoutes.SplashScreen.route) {
             SplashScreen(navController)
+        }
+        composable(route = ScreenRoutes.TimesScreen.route) {
+            TimesScreen(navController)
+        }
+        composable(route = ScreenRoutes.RewardScreen.route) {
+            RewardScreen(navController)
         }
     }
 }

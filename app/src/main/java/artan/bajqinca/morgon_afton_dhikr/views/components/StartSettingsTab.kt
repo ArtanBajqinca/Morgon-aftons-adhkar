@@ -24,7 +24,7 @@ import artan.bajqinca.morgon_afton_dhikr.R
 fun StartSettingsTab(onClick: () -> Unit) {
     Box(
         modifier = Modifier
-            .offset(y = -90.dp)
+            .offset(y = (-90).dp)
             .offset(x = (-170).dp)
             .height(48.dp)
             .width(100.dp)

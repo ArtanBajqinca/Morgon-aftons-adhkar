@@ -2,6 +2,7 @@ package artan.bajqinca.morgon_afton_dhikr.font
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -33,31 +34,39 @@ val AvenirTypography = Typography(
     titleSmall = TextStyle(
         fontFamily = AvenirFontFamily,
         fontSize = 12.sp,
-        color = Color.Black
     ),
     titleMedium = TextStyle(
         fontFamily = AvenirFontFamily,
-        fontSize = 24.sp,
-        color = Color(0xFFD9D9D9)
+        fontSize = 19.sp,
+        fontWeight = FontWeight.W600,
+        lineHeight = 25.sp,
     ),
     titleLarge = TextStyle(
         fontFamily = AvenirFontFamily,
         fontSize = 30.sp,
-        color = Color.Black
     ),
     displaySmall = TextStyle(
         fontFamily = AvenirFontFamily,
         fontSize = 20.sp,
-        color = Color.Black
     ),
     displayMedium = TextStyle(
         fontFamily = AvenirFontFamily,
         fontSize = 20.sp,
-        color = Color.Black
     ),
     displayLarge = TextStyle(
         fontFamily = AvenirFontFamily,
         fontSize = 40.sp,
-        color = Color.Black
+    ),
+    bodySmall = TextStyle(
+        fontFamily = AvenirFontFamily,
+        fontSize = 12.sp,
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = AvenirFontFamily,
+        fontSize = 16.sp,
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = AvenirFontFamily,
+        fontSize = 20.sp,
     ),
 )

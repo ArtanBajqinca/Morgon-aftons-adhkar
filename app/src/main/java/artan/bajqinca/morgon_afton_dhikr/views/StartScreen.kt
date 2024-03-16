@@ -28,7 +28,11 @@ fun StartScreen(navController: NavController = rememberNavController()) {
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
-            DrawerContentStart(navController, drawerState, coroutineScope)
+            DrawerContentStart(
+                navController = navController,
+                drawerState = drawerState,
+                coroutineScope = coroutineScope
+            )
         }
     ) {
         Column {
