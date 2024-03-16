@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="light_beige">#F6E8B1</color>
+    <color name="extra_dark_beige">#847D61</color>
     <color name="dark_beige">#9E9674</color>
     <color name="light_orange">#FFAB1A</color>
     <color name="dark_orange">#F0981E</color>

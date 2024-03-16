@@ -10,14 +10,17 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
@@ -42,7 +45,11 @@ fun CustomTopBar(
         Spacer(modifier = Modifier.weight(1f))
         Box(
             modifier = Modifier
-                .clickable(onClick = onBackClick)
+                .width(55.dp)
+                .height(55.dp)
+                .clip(shape = RoundedCornerShape(50.dp))
+                .clickable { onBackClick() },
+            contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(id = R.drawable.arrow_icon),
@@ -61,7 +68,13 @@ fun CustomTopBar(
             ),
         )
         Spacer(modifier = Modifier.weight(1f))
-        Box(modifier = Modifier.clickable(onClick = onMenuClick)) {
+        Box(modifier = Modifier
+            .width(55.dp)
+            .height(55.dp)
+            .clip(shape = RoundedCornerShape(50.dp))
+            .clickable { onMenuClick() },
+            contentAlignment = Alignment.Center
+        ) {
             Image(
                 painter = painterResource(id = R.drawable.hamburger_icon),
                 contentDescription = "Menu icon",
@@ -70,4 +83,12 @@ fun CustomTopBar(
         }
         Spacer(modifier = Modifier.weight(1f))
     }
+}
+
+@Preview
+@Composable
+fun CustomTopBarPreview() {
+    CustomTopBar(navController = NavController(
+        context = androidx.compose.ui.platform.LocalContext.current
+    ), title = "Morgon")
 }

@@ -1,5 +1,6 @@
 package artan.bajqinca.morgon_afton_dhikr.views.components
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -9,20 +10,30 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.compose.ui.window.Dialog
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
 import artan.bajqinca.morgon_afton_dhikr.font.MeQuranFont
@@ -34,9 +45,19 @@ fun AdhkarCard(
     arabicText: String,
     transliteration: String,
     source: String,
+    reward: String,
     numberBackgroundColor: Color,
     onSeeRewardClick: () -> Unit,
 ) {
+
+    var showDialog by remember { mutableStateOf(false) }
+
+    if (showDialog) {
+        ShowRewardDialog(rewardText = reward) {
+            showDialog = false
+        }
+    }
+
     Spacer(modifier = Modifier.height(40.dp))
 
     Box(
@@ -133,24 +154,36 @@ fun AdhkarCard(
             )
             Spacer(modifier = Modifier.width(20.dp))
 
-//                Box(
-//                    modifier = Modifier
-//                        .clip(RoundedCornerShape(10.dp))
-//                        .background(Color(0xFFBEB283))
-//                        .clickable { onSeeRewardClick() }
-//                        .padding(horizontal = 10.dp, vertical = 5.dp)
-//                        .padding(top = 4.dp),
-//                ) {
-//                    Text(
-//                        text = "LÄS BELÖNING".uppercase(),
-//                        style = TextStyle(
-//                            fontFamily = AvenirFontFamily,
-//                            fontSize = 14.sp,
-//                            fontWeight = FontWeight.Bold,
-//                            color = colorResource(id = R.color.light_beige)
-//                        )
-//                    )
+            Box(
+                modifier = Modifier
+                    .clip(RoundedCornerShape(10.dp))
+                    .background(Color(0xFFBEB283))
+                    .clickable { showDialog = true }
+                    .padding(horizontal = 10.dp, vertical = 5.dp)
+                    .padding(top = 4.dp),
+            ) {
+                Text(
+                    text = "LÄS BELÖNING".uppercase(),
+                    style = TextStyle(
+                        fontFamily = AvenirFontFamily,
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = colorResource(id = R.color.light_beige)
+                    )
+                )
+            }
         }
     }
 }
+
+
+
+//
+////show reward dialog prevview
+//@Preview(showBackground = true)
+//@Composable
+//fun PreviewShowRewardDialog() {
+//    ShowRewardDialog(rewardText = "Vem som än säger detta på morgonen och tror på det och dör samma dag, kommer att tillhöra paradiset. Och vem som än säger detta på kvällen och tror på det och dör samma natt, kommer att tillhöra paradiset.") {}
+//}
+
 

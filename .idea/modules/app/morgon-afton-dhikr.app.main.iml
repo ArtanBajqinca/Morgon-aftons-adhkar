@@ -14,6 +14,7 @@
           <stringArguments>
             <stringArg name="classpath">
               <args>
+                <arg>$MODULE_DIR$/../../../app/build/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/e94530ac2d9dbd5b33ee96ab7e78d3bf/transformed/navigation-common-2.7.5-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/34faa9539766dd7f8162cad0cfbdc6cb/transformed/navigation-runtime-2.7.5-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/ccc551514f502187897f841803893349/transformed/navigation-common-ktx-2.7.5-api.jar</arg>
@@ -105,6 +106,7 @@
                 <arg>$USER_HOME$/.gradle/caches/transforms-3/c5a19f11bdeef1d7282e8142c178fd87/transformed/startup-runtime-1.1.1-api.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlinx/atomicfu-jvm/0.22.0/c6a128a44ba52a18265e5ec816130cd341d80792/atomicfu-jvm-0.22.0.jar</arg>
                 <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.guava/failureaccess/1.0.1/1dcf1de382a0bf95a3d8b0849546c88bac1292c9/failureaccess-1.0.1.jar</arg>
+                <arg>$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.8.8/431fc3cbc0ff81abdbfde070062741089c3ba874/gson-2.8.8.jar</arg>
                 <arg>$USER_HOME$/Library/Android/sdk/platforms/android-34/android.jar</arg>
                 <arg>$USER_HOME$/Library/Android/sdk/build-tools/33.0.1/core-lambda-stubs.jar</arg>
               </args>
@@ -142,5 +144,10 @@
         <option name="ASSETS_FOLDER_RELATIVE_PATH" value="/src/main/assets" />
       </configuration>
     </facet>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$/../../../app/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../app/src/main/assets" type="java-resource" />
+    </content>
   </component>
 </module>

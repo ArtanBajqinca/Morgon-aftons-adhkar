@@ -13,7 +13,7 @@ import artan.bajqinca.morgon_afton_dhikr.views.SplashScreen
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = ScreenRoutes.StartScreen.route) {
+    NavHost(navController = navController, startDestination = ScreenRoutes.SplashScreen.route) {
 
         composable(route = ScreenRoutes.StartScreen.route) {
             StartScreen(navController)
