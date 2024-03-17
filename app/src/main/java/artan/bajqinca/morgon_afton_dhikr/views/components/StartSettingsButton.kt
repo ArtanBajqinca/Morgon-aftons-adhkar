@@ -21,6 +21,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -35,30 +36,29 @@ fun StartSettingsButton(
 ) {
     Box(
         modifier = Modifier
-            .offset { IntOffset(-70, 0) }
             .height(70.dp)
-            .width(230.dp)
-            .clip(RoundedCornerShape(10.dp))
+            .width(210.dp)
+            .clip(RoundedCornerShape(topEnd = 10.dp, bottomEnd = 10.dp))
             .background(colorResource(id = buttonBackgroundColor))
             .clickable { onClick() }
     ) {
         Row(
             modifier = Modifier
-                .padding(16.dp)
                 .align(Alignment.CenterStart),
         ) {
-            Spacer(modifier = Modifier.width(25.dp))
+            Spacer(modifier = Modifier.width(20.dp))
             Image(
                 painter = painterResource(id = settingsIcon),
                 contentDescription = "",
                 modifier = Modifier
                     .width(30.dp)
                     .height(30.dp)
+                    .align(Alignment.CenterVertically)
             )
-            Spacer(modifier = Modifier.width(17.dp))
+            Spacer(modifier = Modifier.width(20.dp))
             Text(
                 modifier = Modifier
-                    .align(Alignment.CenterVertically),
+                    .width(120.dp),
                 text = buttonText,
                 color = Color.White,
                 style = TextStyle(

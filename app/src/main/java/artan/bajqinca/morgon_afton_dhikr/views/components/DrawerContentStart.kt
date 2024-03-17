@@ -96,7 +96,8 @@ fun DrawerContentStart(
                     Spacer(modifier = Modifier.height(30.dp))
 
                     StartSettingsButton(
-                        buttonText = "Fördelarna med adhkar",
+                        buttonText = "Fördelarna \n" +
+                                "med adhkar",
                         settingsIcon = R.drawable.hand_star_icon,
                         buttonBackgroundColor = R.color.blue,
                         onClick = {
@@ -105,7 +106,7 @@ fun DrawerContentStart(
                             }
                         }
                     )
-                    Spacer(modifier = Modifier.height(190.dp))
+                    Spacer(modifier = Modifier.height(130.dp))
                     Image(
                         painter = painterResource(id = R.drawable.ayah_graphic),
                         contentDescription = "Ayah Graphic",

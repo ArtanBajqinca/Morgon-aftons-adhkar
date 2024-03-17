@@ -65,7 +65,7 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
                                     source = it.source,
                                     reward = it.reward,
                                     numberBackgroundColor = colorResource(id = R.color.dark_orange),
-                                ) {}
+                                )
                             }
                             EndOfScreen()
                         }

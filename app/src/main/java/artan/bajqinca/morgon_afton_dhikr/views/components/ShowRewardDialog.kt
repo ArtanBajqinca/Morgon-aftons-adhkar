@@ -53,7 +53,7 @@ fun ShowRewardDialog(
                         modifier = Modifier
                             .padding(top = 4.dp)
                             .padding(horizontal = 10.dp, vertical = 26.dp),
-                        color = colorResource(id = R.color.extra_dark_beige),
+                        color = colorResource(id = R.color.gray),
                         style = TextStyle(
                             fontFamily = AvenirFontFamily,
                             fontWeight = FontWeight.W600,
@@ -72,7 +72,7 @@ fun ShowRewardDialog(
                     .clip(RoundedCornerShape(100.dp))
                     .clickable { onDismiss() }
                     .background(
-                        color = colorResource(id = R.color.dark_beige),
+                        color = colorResource(id = R.color.gray),
                         shape = RoundedCornerShape(20.dp)
                     )
                     .padding(8.dp)

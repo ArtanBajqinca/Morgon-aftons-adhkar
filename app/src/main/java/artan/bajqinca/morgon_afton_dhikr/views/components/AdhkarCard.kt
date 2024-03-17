@@ -41,12 +41,11 @@ fun AdhkarCard(
     source: String,
     reward: String,
     numberBackgroundColor: Color,
-    onSeeRewardClick: () -> Unit,
 ) {
 
     var showDialog by remember { mutableStateOf(false) }
 
-    if (showDialog) {
+    if (showDialog && reward.isNotEmpty()) {
         ShowRewardDialog(rewardText = reward) {
             showDialog = false
         }
@@ -138,23 +137,25 @@ fun AdhkarCard(
             )
             Spacer(modifier = Modifier.width(20.dp))
 
-            Box(
-                modifier = Modifier
-                    .clip(RoundedCornerShape(10.dp))
-                    .background(Color(0xFFBEB283))
-                    .clickable { showDialog = true }
-                    .padding(horizontal = 10.dp, vertical = 5.dp)
-                    .padding(top = 4.dp),
-            ) {
-                Text(
-                    text = "LÄS BELÖNING".uppercase(),
-                    style = TextStyle(
-                        fontFamily = AvenirFontFamily,
-                        fontSize = 14.sp,
-                        fontWeight = FontWeight.Bold,
-                        color = colorResource(id = R.color.light_beige)
+            if (reward.isNotEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Color(0xFFBEB283))
+                        .clickable { showDialog = true }
+                        .padding(horizontal = 10.dp, vertical = 5.dp)
+                        .padding(top = 4.dp),
+                ) {
+                    Text(
+                        text = "LÄS BELÖNING".uppercase(),
+                        style = TextStyle(
+                            fontFamily = AvenirFontFamily,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold,
+                            color = colorResource(id = R.color.light_beige)
+                        )
                     )
-                )
+                }
             }
         }
     }
