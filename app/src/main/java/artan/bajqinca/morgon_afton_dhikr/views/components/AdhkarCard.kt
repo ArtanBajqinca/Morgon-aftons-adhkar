@@ -14,23 +14,30 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirTypography
 import artan.bajqinca.morgon_afton_dhikr.font.MeQuranFont
+import artan.bajqinca.morgon_afton_dhikr.font.MeQuranTypography
+import artan.bajqinca.morgon_afton_dhikr.views.IkhlasFalaqNas
 
 @Composable
 fun AdhkarCard(
@@ -41,8 +48,11 @@ fun AdhkarCard(
     source: String,
     reward: String,
     numberBackgroundColor: Color,
+    repetitionText: String?,
+    repetitionTextArabic: String?,
+    svKapitel: String?,
+    arKapitel: String?,
 ) {
-
     var showDialog by remember { mutableStateOf(false) }
 
     if (showDialog && reward.isNotEmpty()) {
@@ -51,7 +61,7 @@ fun AdhkarCard(
         }
     }
 
-    Spacer(modifier = Modifier.height(40.dp))
+    Spacer(modifier = Modifier.height(30.dp))
 
     Box(
         modifier = Modifier
@@ -78,7 +88,8 @@ fun AdhkarCard(
                     .height(38.dp)
                     .clip(RoundedCornerShape(7.dp))
                     .background(numberBackgroundColor)
-                    .padding(top = 4.dp),
+                    .padding(top = 4.dp)
+                    .padding(end = 2.dp),
                 contentAlignment = Alignment.Center
             ) {
                 Text(
@@ -93,32 +104,61 @@ fun AdhkarCard(
             }
         }
         Spacer(modifier = Modifier.height(30.dp))
-
+        // Swedish text
         Text(
             text = swedishText,
             style = AvenirTypography.titleMedium,
             color = colorResource(id = R.color.gray)
         )
-        Spacer(modifier = Modifier.height(30.dp))
+        Spacer(modifier = Modifier.height(13.dp))
+        // Repetition sv
+        if (!repetitionText.isNullOrEmpty()) {
+            Text(
+                text = repetitionText,
+                style = AvenirTypography.titleSmall,
+                color = colorResource(id = R.color.gray),
+                modifier = Modifier.alpha(0.5f)
+            )
+        }
 
+
+        Spacer(modifier = Modifier.height(30.dp))
         // Transliteration
         Text(
             text = transliteration,
             style = AvenirTypography.titleMedium,
             color = colorResource(id = R.color.gray)
         )
+        Spacer(modifier = Modifier.height(13.dp))
+        Text(
+            text = repetitionText ?: "",
+            style = AvenirTypography.titleSmall,
+            color = colorResource(id = R.color.gray),
+            modifier = Modifier.alpha(0.5f)
+        )
         Spacer(modifier = Modifier.height(20.dp))
 
-        // Arabic text
-        Text(
-            text = arabicText,
-            style = TextStyle(
-                fontFamily = MeQuranFont,
-                fontSize = 27.sp,
-                lineHeight = 45.sp,
+        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+            // Arabic text
+            Text(
+                text = arabicText,
+                style = MeQuranTypography.titleMedium,
                 color = colorResource(id = R.color.gray)
             )
-        )
+        }
+        Spacer(modifier = Modifier.height(5.dp))
+        // Repetition ar
+        Column(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalAlignment = Alignment.End
+        ) {
+            Text(
+                text = repetitionTextArabic ?: "",
+                style = MeQuranTypography.titleSmall,
+                color = colorResource(id = R.color.gray),
+                modifier = Modifier.alpha(0.5f)
+            )
+        }
         Spacer(modifier = Modifier.height(20.dp))
 
         Row(
@@ -159,6 +199,29 @@ fun AdhkarCard(
             }
         }
     }
+
+    if (number == 5) {
+        IkhlasFalaqNas(
+            numberBackgroundColor = colorResource(id = R.color.blue),
+            number = number,
+        )
+    }
 }
 
-
+@Preview(showBackground = true)
+@Composable
+fun PreviewAdhkarCard() {
+    AdhkarCard(
+        number = 1,
+        swedishText = "I Guds namn, jag dör och jag lever, (och jag gör det) för Din skull.",
+        arabicText = "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
+        transliteration = "Bismika allahumma amutu wa ahya",
+        source = "Bukhari",
+        reward = "",
+        numberBackgroundColor = colorResource(id = R.color.blue),
+        svKapitel = "Kapitel 1",
+        arKapitel = "الفصل الأول",
+        repetitionText = "(Läses tre gånger)",
+        repetitionTextArabic = "(ثَلَاثَ مَرَّات)"
+    )
+}

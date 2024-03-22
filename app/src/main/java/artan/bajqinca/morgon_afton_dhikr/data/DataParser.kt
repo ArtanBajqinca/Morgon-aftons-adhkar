@@ -10,9 +10,9 @@ class DataParser(private val context: Context) {
 
     private val gson: Gson by lazy { Gson() }
 
-    fun getMorningAdhkarList(): List<AdkarModel> = parseJsonData("adhkar_afton.json")
+    fun getMorningAdhkarList(): List<AdkarModel> = parseJsonData("adhkar_morgon.json")
 
-    fun getEveningAdhkarList(): List<AdkarModel> = parseJsonData("adhkar_morgon.json")
+    fun getEveningAdhkarList(): List<AdkarModel> = parseJsonData("adhkar_afton.json")
 
     private inline fun <reified T> parseJsonData(filename: String): T {
         val jsonFileString = getJsonDataFromAsset(filename) ?: return emptyList<T>() as T

@@ -1,9 +1,11 @@
 package artan.bajqinca.morgon_afton_dhikr.views
 
 import DataParser
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -17,7 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
-import artan.bajqinca.morgon_afton_dhikr.views.components.CustomTopBar
+import artan.bajqinca.morgon_afton_dhikr.views.components.TopNavigationBar
 import artan.bajqinca.morgon_afton_dhikr.views.components.DrawerContentAdhkarScreen
 import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
 import kotlinx.coroutines.launch
@@ -27,7 +29,7 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
     val dataParser = DataParser(LocalContext.current)
-    val list = dataParser.getEveningAdhkarList()
+    val list = dataParser.getMorningAdhkarList()
 
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
         ModalNavigationDrawer(
@@ -39,8 +41,11 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
             }
         ) {
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-                Column(modifier = Modifier.fillMaxSize()) {
-                    CustomTopBar(
+                Column(modifier = Modifier
+                    .fillMaxSize()
+                    .background(colorResource(id = R.color.light_beige))
+                ) {
+                    TopNavigationBar(
                         navController = navController,
                         title = "Morgons adhkar",
                         onBackClick = { navController.popBackStack() },
@@ -54,19 +59,32 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
                         item {
                             AdhkarTitleDesc(
                                 arabicText = "اذكار الصباح",
-                                descriptionText = "Dens tid är efter fajr-bönen fram till soluppgången"
+                                title = "Morgons adhkar",
+                                descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
                             )
-                            list.forEach {
-                                AdhkarCard(
-                                    number = it.id,
-                                    swedishText = it.sv,
-                                    arabicText = it.ar,
-                                    transliteration = it.transliteration,
-                                    source = it.source,
-                                    reward = it.reward,
-                                    numberBackgroundColor = colorResource(id = R.color.dark_orange),
-                                )
-                            }
+                        }
+
+                        //    svKapitel: String,
+                        //    arKapitel: String,
+                        //    svSurah: String,
+                        //    arSurah: String,
+                        //    transliterationSurah: String
+                        items(list) { adhkar ->
+                            AdhkarCard(
+                                number = adhkar.id,
+                                swedishText = adhkar.sv,
+                                arabicText = adhkar.ar,
+                                transliteration = adhkar.transliteration,
+                                source = adhkar.source,
+                                reward = adhkar.reward,
+                                numberBackgroundColor = colorResource(id = R.color.dark_orange),
+                                svKapitel = adhkar.svKapitel,
+                                arKapitel = adhkar.arKapitel,
+                                repetitionText = adhkar.repetitionText,
+                                repetitionTextArabic = adhkar.repetitionTextArabic
+                            )
+                        }
+                        item {
                             EndOfScreen()
                         }
                     }
@@ -79,7 +97,5 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
 @Preview(showBackground = true)
 @Composable
 fun PreviewMorgonScreen() {
-    DrawerContentAdhkarScreen(navController = rememberNavController(), drawerState = rememberDrawerState(
-        initialValue = DrawerValue.Open
-    ), coroutineScope = rememberCoroutineScope())
+    MorgonScreen()
 }

@@ -30,11 +30,11 @@ import artan.bajqinca.morgon_afton_dhikr.views.components.BackButton
 import artan.bajqinca.morgon_afton_dhikr.views.components.TimeRewardCard
 
 @Composable
-fun RewardScreen(navController: NavController = rememberNavController()) {
+fun TimesScreen(navController: NavController = rememberNavController()) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.blue)),
+            .background(colorResource(id = R.color.dark_orange)),
     ) {
         Image(
             modifier = Modifier.fillMaxSize(),
@@ -49,6 +49,7 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
                 navController.popBackStack()
             }
         }
+
         Column(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -61,8 +62,7 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
             ) {
                 Spacer(modifier = Modifier.height(200.dp))
                 Text(
-                    text = "Fördelarna \n" +
-                            "med adhkar",
+                    text = "Tiderna för morgon & afton",
                     style = TextStyle(
                         fontFamily = AvenirFontFamily,
                         fontWeight = FontWeight.Bold,
@@ -70,39 +70,37 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
                         color = Color.White
                     ),
                 )
-                Spacer(modifier = Modifier.height(40.dp))
+                Spacer(modifier = Modifier.height(50.dp))
                 TimeRewardCard(
-                    title = "Närhet till Allah",
-                    titleColor = R.color.blue,
-                    icon = R.drawable.narhet_icon,
-                    iconWidth = 57,
-                    description = "Genom att praktisera adhkar stärker en person sin tro och förbättrar sin relation med Allah"
+                    title = "Morgon",
+                    titleColor = R.color.dark_orange,
+                    icon = R.drawable.morning_icon,
+                    iconWidth = 62,
+                    description = "Dens tid är efter fajr-bönen\n" +
+                            "fram till soluppgången",
                 )
                 // end of composable named TimeRewardCard
-                Spacer(modifier = Modifier.height(40.dp))
+                Spacer(modifier = Modifier.height(50.dp))
                 TimeRewardCard(
-                    title = "Sinnesro & lugn",
-                    titleColor = R.color.blue,
-                    icon = R.drawable.sinnesro_icon,
-                    iconWidth = 42,
-                    description = "Adhkar erbjuder ett sätt att hitta lugn och ro i hjärtat"
-                )
-                Spacer(modifier = Modifier.height(40.dp))
-
-                TimeRewardCard(
-                    title = "Skydd",
-                    titleColor = R.color.blue,
-                    icon = R.drawable.skydd_icon,
-                    iconWidth = 47  ,
-                    description = "Regelbunden adhkar är ett skydd mot onda influenser"
+                    title = "Afton",
+                    titleColor = R.color.dark_orange,
+                    icon = R.drawable.afton_icon,
+                    iconWidth = 58,
+                    description = "Dens tid är efter asr-bönen\n" +
+                            "fram till solnedgången"
                 )
             }
         }
     }
 }
 
+// make the composable TimeRewardCard
+
+
+
+
 @Preview
 @Composable
-fun RewardScreenPreview() {
-    RewardScreen()
+fun TimesScreenPreview() {
+    TimesScreen()
 }

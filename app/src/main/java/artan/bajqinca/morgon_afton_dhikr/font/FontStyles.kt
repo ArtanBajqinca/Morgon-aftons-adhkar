@@ -33,7 +33,8 @@ val NotoSansArabicFont = FontFamily(
 val AvenirTypography = Typography(
     titleSmall = TextStyle(
         fontFamily = AvenirFontFamily,
-        fontSize = 12.sp,
+        fontWeight = FontWeight.W600,
+        fontSize = 14.sp,
     ),
     titleMedium = TextStyle(
         fontFamily = AvenirFontFamily,
@@ -67,6 +68,49 @@ val AvenirTypography = Typography(
     ),
     bodyLarge = TextStyle(
         fontFamily = AvenirFontFamily,
+        fontSize = 20.sp,
+    ),
+)
+
+val MeQuranTypography = Typography(
+    titleSmall = TextStyle(
+        fontFamily = MeQuranFont,
+        fontWeight = FontWeight.W600,
+        fontSize = 16.sp,
+        letterSpacing = 5.sp,
+    ),
+    titleMedium = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 27.sp,
+        lineHeight = 45.sp,
+        letterSpacing = 5.sp,
+    ),
+    titleLarge = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 30.sp,
+    ),
+    displaySmall = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 20.sp,
+    ),
+    displayMedium = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 20.sp,
+    ),
+    displayLarge = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 40.sp,
+    ),
+    bodySmall = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 12.sp,
+    ),
+    bodyMedium = TextStyle(
+        fontFamily = MeQuranFont,
+        fontSize = 16.sp,
+    ),
+    bodyLarge = TextStyle(
+        fontFamily = MeQuranFont,
         fontSize = 20.sp,
     ),
 )

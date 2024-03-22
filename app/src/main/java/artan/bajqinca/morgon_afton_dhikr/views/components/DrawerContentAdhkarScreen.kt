@@ -51,7 +51,7 @@ fun DrawerContentAdhkarScreen(
             )
             {
                 Image(
-                    painter = painterResource(id = R.drawable.settings_bg),
+                    painter = painterResource(id = R.drawable.islamic_graphic_bg),
                     contentDescription = "Settings Background",
                     modifier = Modifier.fillMaxSize(),
                     contentScale = ContentScale.Crop

@@ -1,5 +1,11 @@
 package artan.bajqinca.morgon_afton_dhikr.navigation
 
+import androidx.compose.animation.EnterTransition
+import androidx.compose.animation.ExitTransition
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.scaleIn
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -15,7 +21,9 @@ import artan.bajqinca.morgon_afton_dhikr.views.TimesScreen
 fun Navigation() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = ScreenRoutes.SplashScreen.route) {
+    NavHost(navController = navController,
+        startDestination = ScreenRoutes.AftonScreen.route,
+    ) {
 
         composable(route = ScreenRoutes.StartScreen.route) {
             StartScreen(navController)

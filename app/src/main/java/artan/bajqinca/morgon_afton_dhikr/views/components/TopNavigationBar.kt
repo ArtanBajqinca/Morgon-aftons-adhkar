@@ -8,6 +8,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -29,7 +30,7 @@ import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
 import artan.bajqinca.morgon_afton_dhikr.navigation.ScreenRoutes
 
 @Composable
-fun CustomTopBar(
+fun TopNavigationBar(
     navController: NavController,
     title: String,
     onBackClick: () -> Unit = { navController.navigate(ScreenRoutes.StartScreen.route) },
@@ -59,6 +60,8 @@ fun CustomTopBar(
         }
         Spacer(modifier = Modifier.weight(1f))
         Text(
+            modifier = Modifier
+                .padding(top = 5.dp),
             text = title,
             style = TextStyle(
                 fontFamily = AvenirFontFamily,
@@ -68,12 +71,13 @@ fun CustomTopBar(
             ),
         )
         Spacer(modifier = Modifier.weight(1f))
-        Box(modifier = Modifier
+        Box(
+            modifier = Modifier
             .width(55.dp)
             .height(55.dp)
             .clip(shape = RoundedCornerShape(50.dp))
             .clickable { onMenuClick() },
-            contentAlignment = Alignment.Center
+            contentAlignment = Alignment.Center,
         ) {
             Image(
                 painter = painterResource(id = R.drawable.setting_icon),
@@ -88,7 +92,7 @@ fun CustomTopBar(
 @Preview
 @Composable
 fun CustomTopBarPreview() {
-    CustomTopBar(navController = NavController(
+    TopNavigationBar(navController = NavController(
         context = androidx.compose.ui.platform.LocalContext.current
     ), title = "Morgon")
 }
