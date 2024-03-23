@@ -2,45 +2,24 @@ package artan.bajqinca.morgon_afton_dhikr.views
 
 import DataParser
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.alpha
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
-import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
-import artan.bajqinca.morgon_afton_dhikr.font.AvenirTypography
-import artan.bajqinca.morgon_afton_dhikr.font.MeQuranFont
-import artan.bajqinca.morgon_afton_dhikr.font.MeQuranTypography
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
+import artan.bajqinca.morgon_afton_dhikr.views.components.AyatAlKursi
 import artan.bajqinca.morgon_afton_dhikr.views.components.TopNavigationBar
 import artan.bajqinca.morgon_afton_dhikr.views.components.DrawerContentAdhkarScreen
 import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
@@ -48,6 +27,7 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun AftonScreen(navController: NavController = rememberNavController()) {
+
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
     val dataParser = DataParser(LocalContext.current)
@@ -63,7 +43,6 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
             }
         ) {
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-
                 Column(modifier = Modifier
                     .fillMaxSize()
                     .background(colorResource(id = R.color.light_beige))
@@ -79,23 +58,30 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                         }
                     )
                     LazyColumn {
-                        item {
-//                    AdhkarTitleDesc(
-//                        arabicText = "اذكار المساء",
-//                        title = "Aftons adhkar",
-//                        descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
-//                    )
-                        }
-                        items(list) { adhkar ->
 
-                            if (list.indexOf(adhkar) == 5) {
-                                IkhlasFalaqNas(
+                        item {
+                            AdhkarTitleDesc(
+                                arabicText = "اذكار المساء",
+                                title = "Aftons adhkar",
+                                descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
+                            )
+                        }
+
+                        items(list) { adhkar ->
+                            // Ayat al kursi
+                            if (list.indexOf(adhkar) == 11) {
+                                AyatAlKursi(
+                                    swedishTitle = "Ayat al-Kursi",
+                                    swedishText =  "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige Vidmakthållare. Slummer överraskar Honom inte och inte heller sömn. Honom tillhör allt det som himlarna rymmer och det som jorden bär. Vem är den som vågar tala [för någon] inför Honom utan Hans tillstånd? Han vet allt vad [människor] kan veta och allt som är dolt för dem och av Hans kunskap kan de inte omfatta mer än Han tillåter. Hans fotpall omsluter himlarna och jorden. Att värna och bevara dem är för Honom ingen börda. Han är den Höge, den Väldige.",
+                                    transliteration = "Allahu lâ ilâha illâ Huwal-Hayyul-Qayyûm, lâ ta´khuthuhu sinatun wa lâ nawm, lahu mâ fis-samâwâti wa mâfil-ardh, man thal-lathî yashfa'u 'indahu illâ bi'ithnih, ya'lamu mâ bayna aydîhim wa mâ khalfahum, wa lâ yuhîtûna bishay´im-min 'ilmihi illâ bimâ shâ´a, wasi'a kursiyyuhus-samâwâti wal ardha, wa lâ ya'ûduhu hifdhuhumâ, wa Huwal-'Aliyyul-'Adhîm.",
+                                    arabicTitle = "آية الكرسي" ,
+                                    arabicText = "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ\n\n ۞ اللَّهُُ لَا إِلٰهَ إِلّا هُوَ الْحَيُّ الْقَيّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَومٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلّا بِإِذْنِهِ يَعْلَمُ مَا بَينَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيءٍ مِن عِلْمِهِ إِلّا بِمَا شاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ ۞",
                                     numberBackgroundColor = colorResource(id = R.color.blue),
-                                    number = 5
+                                    source = "Den Ädla Koranen, 2:255"
                                 )
                             }
-                            if (adhkar.id != 5) {
-
+                            // skips an adhkar to let ayat al kursi be displayed
+                            if (adhkar.id != 12) {
                                 AdhkarCard(
                                     number = list.indexOf(adhkar) + 1,
                                     swedishText = adhkar.sv,
@@ -121,204 +107,16 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
     }
 }
 
-@Composable
-fun IkhlasFalaqNas(
-    numberBackgroundColor: Color,
-    number: Int,
-){
-    Spacer(modifier = Modifier.height(30.dp))
-
-    Box(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(10.dp)
-            .background(colorResource(id = R.color.extra_light_beige))
-    )
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 24.dp),
-    ) {
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Row(
-            modifier = Modifier
-                .fillMaxWidth(),
-            horizontalArrangement = Arrangement.Center,
-            verticalAlignment = Alignment.CenterVertically
-        ) {
-            Box(
-                modifier = Modifier
-                    .width(38.dp)
-                    .height(38.dp)
-                    .clip(RoundedCornerShape(7.dp))
-                    .background(numberBackgroundColor)
-                    .padding(top = 4.dp)
-                    .padding(end = 2.dp),
-                contentAlignment = Alignment.Center
-            ) {
-                Text(
-                    text = "5",
-                    style = TextStyle(
-                        fontFamily = AvenirFontFamily,
-                        fontWeight = FontWeight.W600,
-                        fontSize = 24.sp,
-                        color = colorResource(id = R.color.light_beige)
-                    )
-                )
-            }
-        }
-        Spacer(modifier = Modifier.height(40.dp))
-        SurahSection(
-            chapterTitle = "Kapitel Al-Ikhlas",
-            swedishTranslation = "I Allahs Namn, Den Nåderike, Den Barmhärtige. Säg Han är Allah, [Han är] En. Allah - Den av skapelsen oberoende, av vilken alla beror. Han har inte avlat och inte heller är Han född, och ingen finns som kan liknas vid Honom.",
-            transliteration = "Bismillâhir-Rahmânir-Rahîm.\n" +
-                    "Qul HuwAllahu Ahad. Allahus-Samad. Lam yalid wa lam yûlad. Wa lam yakun lahu kufuwan Ahad.",
-            chapterTitleArabic = "سورة الإخلاص",
-            quranArabicText = "بَسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ\n" +
-                    "قُلْ هُوَ اللهُ أَحَدٌ ۞ اللهُ الصَّمَدُ ۞\n" +
-                    "لَمْ يَلِدْ وَلَمْ يُولَد ۞\n" +
-                    " وَلَمْ يَكُنْ لَهُ كُفُوًا أَحَدٌ ۞"
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(3.dp)
-                .background(colorResource(id = R.color.extra_light_beige))
-                .align(Alignment.Start)
-        )
-        Spacer(modifier = Modifier.height(40.dp))
-        SurahSection(
-            chapterTitle = "Kapitel Al-Falaq",
-            swedishTranslation = "I Allahs Namn, Den Nåderike Den Barmhärtige. Säg: Jag tar skydd hos gryningens Herre. Mot ondskan i det som Han har skapat. Och mot ondskan i natten när den mörknar. Och mot ondskan hos de [magiker] som blåser på knutarna. Och mot den avundsammes ondska när han avundas.",
-            transliteration = "Bismillâhir-Rahmânir-Rahîm.\n" +
-                    "Qul a'ûthu birabbil-falaq. Min sharri mâ khalaq. Wa min sharri ghâsiqin ithâ waqab. Wa min sharrin-naffâthâti fil-'uqad. Wa min sharri hâsidin ithâ hasad.",
-            chapterTitleArabic = "سورة الفلق",
-            quranArabicText = "بَسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ\n" +
-                    "  قُلۡ أَعُوذُ بِرَبِّ ٱلۡفَلَقِ۞\n" +
-                    " مِن شَرِّ مَا خَلَقَ۞ \n" +
-                    "وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ۞\n" +
-                    " وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِي ٱلۡعُقَدِ۞\n" +
-                    " وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ۞"
-        )
-        Spacer(modifier = Modifier.height(30.dp))
-        Box(
-            modifier = Modifier
-                .fillMaxWidth()
-                .height(3.dp)
-                .background(colorResource(id = R.color.extra_light_beige))
-                .align(Alignment.Start)
-        )
-        Spacer(modifier = Modifier.height(40.dp))
-        SurahSection(
-            chapterTitle = "Kapitel An-Nas",
-            swedishTranslation = "I Allahs Namn, Den Nåderike Den Barmhärtige.Säg: Jag tar skydd hos människornas Herre. Människornas Konung. Människornas Gud. Mot den förrädiske frestarens ondska. Han som viskar inom människornas bröst. Bland både djinnerna och människorna.",
-            transliteration = "Bismillâhir-Rahmânir-Rahîm.\n" +
-                    "Qul a'ûthu birabbin-nâs. Malikin-nâs. Ilâhin-nâs. Min sharril-waswâsil-khannâs. Allathî yuwaswisu fî sudûrin-nâs. Minal-djinnati wannâs.",
-            chapterTitleArabic = "سورة الناس",
-            quranArabicText = "بَسْمِ اللهِ الرَّحْمَنِ الرَّحِيمِ\n" +
-                    "  قُلۡ أَعُوذُ بِرَبِّ ٱلنَّاسِ۞\n" +
-                    " مَلِكِ ٱلنَّاسِ۞ إِلَٰهِ ٱلنَّاسِ۞\n" +
-                    " مِن شَرِّ ٱلۡوَسۡوَاسِ ٱلۡخَنَّاسِ۞ \n" +
-                    "ٱلَّذِي يُوَسۡوِسُ فِي صُدُورِ ٱلنَّاسِ۞\n" +
-                    " مِنَ ٱلۡجِنَّةِ وَٱلنَّاسِ ۞",
-        )
-    }
-}
-
-@Composable
-fun SurahSection(
-    numberBackgroundColor: Color = colorResource(id = R.color.blue),
-    chapterTitle: String,
-    swedishTranslation: String,
-    transliteration: String,
-    quranArabicText: String,
-    repetitionText: String = "(Läses tre gånger)",
-    chapterTitleArabic: String = "سورة الإخلاص",
-    repetitionTextArabic: String = "(ثَلَاثَ مَرَّات)"
-) {
-    Text(
-        text = chapterTitle,
-        style = TextStyle(
-            fontFamily = AvenirFontFamily,
-            fontWeight = FontWeight.Bold,
-            fontSize = 20.sp,
-            color = numberBackgroundColor
-        )
-    )
-    Spacer(modifier = Modifier.height(30.dp))
-
-    // Swedish translation
-    Text(
-        text = swedishTranslation,
-        style = AvenirTypography.titleMedium,
-        color = colorResource(id = R.color.gray)
-    )
-    Spacer(modifier = Modifier.height(13.dp))
-
-    // Repetition
-    Text(
-        text = repetitionText,
-        style = AvenirTypography.titleSmall,
-        color = colorResource(id = R.color.gray),
-        modifier = Modifier.alpha(0.5f)
-    )
-    Spacer(modifier = Modifier.height(30.dp))
-
-    // Transliteration
-    Text(
-        text = transliteration,
-        style = AvenirTypography.titleMedium,
-        color = colorResource(id = R.color.gray)
-    )
-    Spacer(modifier = Modifier.height(13.dp))
-
-    // Repetition
-    Text(
-        text = repetitionText,
-        style = AvenirTypography.titleSmall,
-        color = colorResource(id = R.color.gray),
-        modifier = Modifier.alpha(0.5f)
-    )
-    Spacer(modifier = Modifier.height(20.dp))
-
-    Column(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalAlignment = Alignment.End
-    ) {
-        // Arabic title
-        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-            Text(
-                text = chapterTitleArabic,
-                style = TextStyle(
-                    fontFamily = MeQuranFont,
-                    fontSize = 27.sp,
-                    letterSpacing = 5.sp,
-                    color = numberBackgroundColor
-                )
-            )
-            // Quran arabic text
-            Text(
-                text = quranArabicText,
-                style = MeQuranTypography.titleMedium,
-                color = colorResource(id = R.color.gray)
-            )
-            Spacer(modifier = Modifier.height(5.dp))
-
-            // Repetition
-            Text(
-                text = repetitionTextArabic,
-                style = MeQuranTypography.titleSmall,
-                color = colorResource(id = R.color.gray),
-                modifier = Modifier.alpha(0.5f)
-            )
-        }
-    }
-}
-
 @Preview(showBackground = true)
 @Composable
 fun PreviewAftonScreen() {
-    AftonScreen()
+    AyatAlKursi(
+        swedishTitle = "Ayat al-Kursi",
+        swedishText =  "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige Vidmakthållare. Slummer överraskar Honom inte och inte heller sömn. Honom tillhör allt det som himlarna rymmer och det som jorden bär. Vem är den som vågar tala [för någon] inför Honom utan Hans tillstånd? Han vet allt vad [människor] kan veta och allt som är dolt för dem och av Hans kunskap kan de inte omfatta mer än Han tillåter. Hans fotpall omsluter himlarna och jorden. Att värna och bevara dem är för Honom ingen börda. Han är den Höge, den Väldige.",
+        transliteration = "Allahu lâ ilâha illâ Huwal-Hayyul-Qayyûm, lâ ta´khuthuhu sinatun wa lâ nawm, lahu mâ fis-samâwâti wa mâfil-ardh, man thal-lathî yashfa'u 'indahu illâ bi'ithnih, ya'lamu mâ bayna aydîhim wa mâ khalfahum, wa lâ yuhîtûna bishay´im-min 'ilmihi illâ bimâ shâ´a, wasi'a kursiyyuhus-samâwâti wal ardha, wa lâ ya'ûduhu hifdhuhumâ, wa Huwal-'Aliyyul-'Adhîm.",
+        arabicTitle = "آية الكرسي" ,
+        arabicText = "۞ ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَ‍ُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ ۞",
+        numberBackgroundColor = colorResource(id = R.color.blue)
+    )
+
 }

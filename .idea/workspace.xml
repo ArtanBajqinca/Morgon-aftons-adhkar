@@ -9,36 +9,19 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59e9de02-cfe3-48cb-9e97-a8d177dd188b" name="Changes" comment="Add two new screens RewardScreen &amp; TimeScreen.kt">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/TimeScreen.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/src/main/res/drawable/islamic_graphic_bg.png" afterDir="false" />
+    <list default="true" id="59e9de02-cfe3-48cb-9e97-a8d177dd188b" name="Changes" comment="Add new adhkar">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AyatAlKursi.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/IkhlasFalaqNas.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-03-11,_23_08_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_2024-03-11__23_08__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/morgon-afton-dhikr.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/morgon-afton-dhikr.app.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle.kts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/assets/adhkar_afton.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/adhkar_afton.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/assets/adhkar_morgon.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/assets/adhkar_morgon.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/data/DataParser.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/data/DataParser.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/font/FontStyles.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/font/FontStyles.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/model/AdkarModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/model/AdkarModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Navigation.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/navigation/Navigation.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/viewModel/AdhkarViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/viewModel/AdhkarViewModel.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/AftonScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/MorgonScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/RewardScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/RewardScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/TimesScreen.kt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarCard.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarCard.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarTitleDesc.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/AdhkarTitleDesc.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/CustomTopBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/TopNavigationBar.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/DrawerContentAdhkarScreen.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/DrawerContentAdhkarScreen.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/DrawerContentStart.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/DrawerContentStart.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable/settings_bg.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/TopNavigationBar.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/artan/bajqinca/morgon_afton_dhikr/views/components/TopNavigationBar.kt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,8 +76,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="valueResourceFile" />
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -117,19 +100,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/artan/Developer/morgon-afton-dhikr/app/src/main/assets&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.17&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "ToolWindowBuild.ShowToolbar": "false",
+    "cidr.known.project.marker": "true",
+    "deletionFromPopupRequiresConfirmation": "false",
+    "last_opened_file_path": "/Users/artan/Developer/morgon-afton-dhikr/app/src/main/assets",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.17",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "preferences.editor"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/assets" />
@@ -148,7 +133,7 @@
       <recent name="artan.bajqinca.morgon_afton_dhikr.navigation" />
     </key>
   </component>
-  <component name="RunManager" selected="Android App.app">
+  <component name="RunManager">
     <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="morgon-afton-dhikr.app.main" />
       <option name="DEPLOY" value="true" />
@@ -215,78 +200,6 @@
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PreviewStartScreen" type="ComposePreviewRunConfiguration" singleton="false" temporary="true">
-      <module name="morgon-afton-dhikr.app.main" />
-      <option name="DEPLOY" value="true" />
-      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
-      <option name="DEPLOY_AS_INSTANT" value="false" />
-      <option name="ARTIFACT_NAME" value="" />
-      <option name="PM_INSTALL_OPTIONS" value="" />
-      <option name="ALL_USERS" value="false" />
-      <option name="ALWAYS_INSTALL_WITH_PM" value="false" />
-      <option name="CLEAR_APP_STORAGE" value="false" />
-      <option name="ACTIVITY_EXTRA_FLAGS" value="--es composable artan.bajqinca.morgon_afton_dhikr.screens.StartScreenKt.PreviewStartScreen" />
-      <option name="MODE" value="specific_activity" />
-      <option name="CLEAR_LOGCAT" value="false" />
-      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
-      <option name="INSPECTION_WITHOUT_ACTIVITY_RESTART" value="false" />
-      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
-      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
-      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
-      <option name="DEBUGGER_TYPE" value="Auto" />
-      <Auto>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Auto>
-      <Hybrid>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Hybrid>
-      <Java>
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Java>
-      <Native>
-        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
-        <option name="SHOW_STATIC_VARS" value="true" />
-        <option name="WORKING_DIR" value="" />
-        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
-        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
-        <option name="ATTACH_ON_WAIT_FOR_DEBUGGER" value="false" />
-        <option name="DEBUG_SANDBOX_SDK" value="false" />
-      </Native>
-      <Profilers>
-        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
-        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Java/Kotlin Method Sample (legacy)" />
-        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
-        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
-      </Profilers>
-      <option name="DEEP_LINK" value="" />
-      <option name="ACTIVITY_CLASS" value="androidx.compose.ui.tooling.PreviewActivity" />
-      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="true" />
-      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
-      <compose-preview-run-configuration composable-fqn="artan.bajqinca.morgon_afton_dhikr.screens.StartScreenKt.PreviewStartScreen" />
-      <method v="2">
-        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Compose Preview.PreviewStartScreen" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -374,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1710674914644</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Add new adhkar">
+      <created>1711110293964</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1711110293965</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -389,7 +309,8 @@
     <MESSAGE value="Add json file, integrate with AdhkarCard" />
     <MESSAGE value="Add Buttons to StartScreen Drawer, navigate to RewardScreen and TimesScreen.kt" />
     <MESSAGE value="Add two new screens RewardScreen &amp; TimeScreen.kt" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add two new screens RewardScreen &amp; TimeScreen.kt" />
+    <MESSAGE value="Add new adhkar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add new adhkar" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

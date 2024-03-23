@@ -3,6 +3,7 @@ package artan.bajqinca.morgon_afton_dhikr.views.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -41,27 +42,27 @@ fun TopNavigationBar(
             .fillMaxWidth()
             .height(70.dp)
             .background(colorResource(id = R.color.gray)),
-        verticalAlignment = Alignment.CenterVertically
+        verticalAlignment = Alignment.CenterVertically,
+        horizontalArrangement = Arrangement.Center
     ) {
-        Spacer(modifier = Modifier.weight(1f))
+        // Left side - Back Icon Box
         Box(
             modifier = Modifier
                 .width(55.dp)
-                .height(55.dp)
-                .clip(shape = RoundedCornerShape(50.dp))
-                .clickable { onBackClick() },
+                .height(75.dp)
+                .clickable { onBackClick() }
+                .weight(1f),
             contentAlignment = Alignment.Center
         ) {
             Image(
                 painter = painterResource(id = R.drawable.arrow_icon),
                 contentDescription = "Back icon",
-                modifier = Modifier.size(28.dp)
+                modifier = Modifier.size(30.dp)
             )
         }
-        Spacer(modifier = Modifier.weight(1f))
+
+        // Center - Title Text
         Text(
-            modifier = Modifier
-                .padding(top = 5.dp),
             text = title,
             style = TextStyle(
                 fontFamily = AvenirFontFamily,
@@ -69,25 +70,34 @@ fun TopNavigationBar(
                 fontSize = 24.sp,
                 color = colorResource(id = R.color.light_beige)
             ),
-        )
-        Spacer(modifier = Modifier.weight(1f))
-        Box(
             modifier = Modifier
-            .width(55.dp)
-            .height(55.dp)
-            .clip(shape = RoundedCornerShape(50.dp))
-            .clickable { onMenuClick() },
-            contentAlignment = Alignment.Center,
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.setting_icon),
-                contentDescription = "Menu icon",
-                modifier = Modifier.width(35.dp)
-            )
+                .padding(horizontal = 8.dp) // add padding to ensure title doesn't get squished
+                .padding(top = 2.dp)
+        )
+
+        // Right side - Menu Icon Box or Spacer if no menu icon is needed
+        if (onMenuClick != {}) {
+            Box(
+                modifier = Modifier
+                    .width(55.dp)
+                    .height(75.dp)
+                    .clickable { onMenuClick() }
+                    .weight(1f),
+                contentAlignment = Alignment.Center
+            ) {
+                Image(
+                    painter = painterResource(id = R.drawable.setting_icon),
+                    contentDescription = "Menu icon",
+                    modifier = Modifier.size(32.dp)
+                )
+            }
+        } else {
+            // If there is no menu icon, still occupy the space to keep the title centered
+            Spacer(modifier = Modifier.weight(1f).padding(end = 16.dp))
         }
-        Spacer(modifier = Modifier.weight(1f))
     }
 }
+
 
 @Preview
 @Composable

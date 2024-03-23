@@ -35,9 +35,7 @@ import androidx.compose.ui.unit.sp
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirTypography
-import artan.bajqinca.morgon_afton_dhikr.font.MeQuranFont
 import artan.bajqinca.morgon_afton_dhikr.font.MeQuranTypography
-import artan.bajqinca.morgon_afton_dhikr.views.IkhlasFalaqNas
 
 @Composable
 fun AdhkarCard(
@@ -52,6 +50,7 @@ fun AdhkarCard(
     repetitionTextArabic: String?,
     svKapitel: String?,
     arKapitel: String?,
+
 ) {
     var showDialog by remember { mutableStateOf(false) }
 
@@ -72,6 +71,7 @@ fun AdhkarCard(
     Column(
         modifier = Modifier
             .fillMaxWidth()
+            .background(colorResource(id = R.color.light_beige))
             .padding(horizontal = 24.dp),
     ) {
         Spacer(modifier = Modifier.height(40.dp))
@@ -136,17 +136,22 @@ fun AdhkarCard(
             color = colorResource(id = R.color.gray),
             modifier = Modifier.alpha(0.5f)
         )
-        Spacer(modifier = Modifier.height(20.dp))
+        Spacer(modifier = Modifier.height(10.dp))
 
         CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
             // Arabic text
-            Text(
-                text = arabicText,
-                style = MeQuranTypography.titleMedium,
-                color = colorResource(id = R.color.gray)
-            )
+            Column(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalAlignment = Alignment.Start
+            ) {
+                Text(
+                    text = arabicText,
+                    style = MeQuranTypography.titleMedium,
+                    color = colorResource(id = R.color.gray)
+                )
+            }
         }
-        Spacer(modifier = Modifier.height(5.dp))
+        Spacer(modifier = Modifier.height(0.dp))
         // Repetition ar
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -159,7 +164,10 @@ fun AdhkarCard(
                 modifier = Modifier.alpha(0.5f)
             )
         }
-        Spacer(modifier = Modifier.height(20.dp))
+        if(repetitionTextArabic != null) {
+            Spacer(modifier = Modifier.height(10.dp))
+        }
+        Spacer(modifier = Modifier.height(10.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
@@ -198,13 +206,6 @@ fun AdhkarCard(
                 }
             }
         }
-    }
-
-    if (number == 5) {
-        IkhlasFalaqNas(
-            numberBackgroundColor = colorResource(id = R.color.blue),
-            number = number,
-        )
     }
 }
 
