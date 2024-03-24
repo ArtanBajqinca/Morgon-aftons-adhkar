@@ -22,7 +22,7 @@ fun Navigation() {
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = ScreenRoutes.AftonScreen.route,
+        startDestination = ScreenRoutes.SplashScreen.route,
     ) {
 
         composable(route = ScreenRoutes.StartScreen.route) {

@@ -19,6 +19,7 @@ import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
+import artan.bajqinca.morgon_afton_dhikr.views.components.AyatAlKursi
 import artan.bajqinca.morgon_afton_dhikr.views.components.TopNavigationBar
 import artan.bajqinca.morgon_afton_dhikr.views.components.DrawerContentAdhkarScreen
 import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
@@ -56,33 +57,35 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
                         }
                     )
                     LazyColumn {
-                        item {
-                            AdhkarTitleDesc(
-                                arabicText = "اذكار الصباح",
-                                title = "Morgons adhkar",
-                                descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
-                            )
-                        }
-
-                        //    svKapitel: String,
-                        //    arKapitel: String,
-                        //    svSurah: String,
-                        //    arSurah: String,
-                        //    transliterationSurah: String
                         items(list) { adhkar ->
-                            AdhkarCard(
-                                number = adhkar.id,
-                                swedishText = adhkar.sv,
-                                arabicText = adhkar.ar,
-                                transliteration = adhkar.transliteration,
-                                source = adhkar.source,
-                                reward = adhkar.reward,
-                                numberBackgroundColor = colorResource(id = R.color.dark_orange),
-                                svKapitel = adhkar.svKapitel,
-                                arKapitel = adhkar.arKapitel,
-                                repetitionText = adhkar.repetitionText,
-                                repetitionTextArabic = adhkar.repetitionTextArabic
-                            )
+                            // Ayat al kursi
+                            if (adhkar.arKapitel != null) {
+                                AyatAlKursi(
+                                    swedishTitle = adhkar.svKapitel,
+                                    swedishText = adhkar.sv,
+                                    transliteration = adhkar.transliteration,
+                                    arabicTitle = adhkar.arKapitel ,
+                                    arabicText = adhkar.ar,
+                                    numberBackgroundColor = colorResource(id = R.color.dark_orange),
+                                    source = adhkar.source
+                                )
+                            }
+                            // skips an adhkar to let ayat al kursi composable be displayed
+                            if (adhkar.id != 12) {
+                                AdhkarCard(
+                                    number = adhkar.id,
+                                    swedishText = adhkar.sv,
+                                    arabicText = adhkar.ar,
+                                    transliteration = adhkar.transliteration,
+                                    source = adhkar.source,
+                                    reward = adhkar.reward,
+                                    numberBackgroundColor = colorResource(id = R.color.dark_orange),
+                                    svKapitel = adhkar.svKapitel,
+                                    arKapitel = adhkar.arKapitel,
+                                    repetitionText = adhkar.repetitionText,
+                                    repetitionTextArabic = adhkar.repetitionTextArabic
+                                )
+                            }
                         }
                         item {
                             EndOfScreen()
@@ -92,10 +95,4 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewMorgonScreen() {
-    MorgonScreen()
 }

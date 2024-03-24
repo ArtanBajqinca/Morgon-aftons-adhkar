@@ -58,7 +58,6 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                         }
                     )
                     LazyColumn {
-
                         item {
                             AdhkarTitleDesc(
                                 arabicText = "اذكار المساء",
@@ -66,24 +65,23 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                                 descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
                             )
                         }
-
                         items(list) { adhkar ->
                             // Ayat al kursi
-                            if (list.indexOf(adhkar) == 11) {
+                            if (adhkar.arKapitel != null) {
                                 AyatAlKursi(
-                                    swedishTitle = "Ayat al-Kursi",
-                                    swedishText =  "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige Vidmakthållare. Slummer överraskar Honom inte och inte heller sömn. Honom tillhör allt det som himlarna rymmer och det som jorden bär. Vem är den som vågar tala [för någon] inför Honom utan Hans tillstånd? Han vet allt vad [människor] kan veta och allt som är dolt för dem och av Hans kunskap kan de inte omfatta mer än Han tillåter. Hans fotpall omsluter himlarna och jorden. Att värna och bevara dem är för Honom ingen börda. Han är den Höge, den Väldige.",
-                                    transliteration = "Allahu lâ ilâha illâ Huwal-Hayyul-Qayyûm, lâ ta´khuthuhu sinatun wa lâ nawm, lahu mâ fis-samâwâti wa mâfil-ardh, man thal-lathî yashfa'u 'indahu illâ bi'ithnih, ya'lamu mâ bayna aydîhim wa mâ khalfahum, wa lâ yuhîtûna bishay´im-min 'ilmihi illâ bimâ shâ´a, wasi'a kursiyyuhus-samâwâti wal ardha, wa lâ ya'ûduhu hifdhuhumâ, wa Huwal-'Aliyyul-'Adhîm.",
-                                    arabicTitle = "آية الكرسي" ,
-                                    arabicText = "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ\n\n ۞ اللَّهُُ لَا إِلٰهَ إِلّا هُوَ الْحَيُّ الْقَيّومُ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَومٌ لَهُ مَا فِي السَّمَاوَاتِ وَمَا فِي الْأَرْضِ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلّا بِإِذْنِهِ يَعْلَمُ مَا بَينَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ وَلَا يُحِيطُونَ بِشَيءٍ مِن عِلْمِهِ إِلّا بِمَا شاءَ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ وَلَا يَئُودُهُ حِفْظُهُمَا وَهُوَ الْعَلِيُّ الْعَظِيمُ ۞",
+                                    swedishTitle = adhkar.svKapitel,
+                                    swedishText = adhkar.sv,
+                                    transliteration = adhkar.transliteration,
+                                    arabicTitle = adhkar.arKapitel ,
+                                    arabicText = adhkar.ar,
                                     numberBackgroundColor = colorResource(id = R.color.blue),
-                                    source = "Den Ädla Koranen, 2:255"
+                                    source = adhkar.source
                                 )
                             }
-                            // skips an adhkar to let ayat al kursi be displayed
+                            // skips an adhkar to let ayat al kursi composable be displayed
                             if (adhkar.id != 12) {
                                 AdhkarCard(
-                                    number = list.indexOf(adhkar) + 1,
+                                    number = adhkar.id,
                                     swedishText = adhkar.sv,
                                     arabicText = adhkar.ar,
                                     transliteration = adhkar.transliteration,
@@ -105,18 +103,4 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PreviewAftonScreen() {
-    AyatAlKursi(
-        swedishTitle = "Ayat al-Kursi",
-        swedishText =  "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige Vidmakthållare. Slummer överraskar Honom inte och inte heller sömn. Honom tillhör allt det som himlarna rymmer och det som jorden bär. Vem är den som vågar tala [för någon] inför Honom utan Hans tillstånd? Han vet allt vad [människor] kan veta och allt som är dolt för dem och av Hans kunskap kan de inte omfatta mer än Han tillåter. Hans fotpall omsluter himlarna och jorden. Att värna och bevara dem är för Honom ingen börda. Han är den Höge, den Väldige.",
-        transliteration = "Allahu lâ ilâha illâ Huwal-Hayyul-Qayyûm, lâ ta´khuthuhu sinatun wa lâ nawm, lahu mâ fis-samâwâti wa mâfil-ardh, man thal-lathî yashfa'u 'indahu illâ bi'ithnih, ya'lamu mâ bayna aydîhim wa mâ khalfahum, wa lâ yuhîtûna bishay´im-min 'ilmihi illâ bimâ shâ´a, wasi'a kursiyyuhus-samâwâti wal ardha, wa lâ ya'ûduhu hifdhuhumâ, wa Huwal-'Aliyyul-'Adhîm.",
-        arabicTitle = "آية الكرسي" ,
-        arabicText = "۞ ٱللَّهُ لَآ إِلَٰهَ إِلَّا هُوَ ٱلۡحَيُّ ٱلۡقَيُّومُۚ لَا تَأۡخُذُهُۥ سِنَةٞ وَلَا نَوۡمٞۚ لَّهُۥ مَا فِي ٱلسَّمَٰوَٰتِ وَمَا فِي ٱلۡأَرۡضِۗ مَن ذَا ٱلَّذِي يَشۡفَعُ عِندَهُۥٓ إِلَّا بِإِذۡنِهِۦۚ يَعۡلَمُ مَا بَيۡنَ أَيۡدِيهِمۡ وَمَا خَلۡفَهُمۡۖ وَلَا يُحِيطُونَ بِشَيۡءٖ مِّنۡ عِلۡمِهِۦٓ إِلَّا بِمَا شَآءَۚ وَسِعَ كُرۡسِيُّهُ ٱلسَّمَٰوَٰتِ وَٱلۡأَرۡضَۖ وَلَا يَ‍ُٔودُهُۥ حِفۡظُهُمَاۚ وَهُوَ ٱلۡعَلِيُّ ٱلۡعَظِيمُ ۞",
-        numberBackgroundColor = colorResource(id = R.color.blue)
-    )
-
 }
