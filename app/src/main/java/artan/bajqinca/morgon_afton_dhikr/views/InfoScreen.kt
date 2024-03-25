@@ -13,7 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -27,15 +26,14 @@ import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
 import artan.bajqinca.morgon_afton_dhikr.views.components.BackButton
-import artan.bajqinca.morgon_afton_dhikr.views.components.TimeRewardCard
 
 @Composable
-fun TimesScreen(navController: NavController = rememberNavController()) {
+fun InfoScreen(navController: NavController = rememberNavController()) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.dark_orange)),
-    ) {
+            .background(colorResource(id = R.color.light_beige)),
+    ){
         Image(
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop,
@@ -57,39 +55,19 @@ fun TimesScreen(navController: NavController = rememberNavController()) {
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
             Column(
-                horizontalAlignment = Alignment.Start,
+                horizontalAlignment = Alignment.CenterHorizontally,
                 modifier = Modifier.width(310.dp),
             ) {
                 Spacer(modifier = Modifier.height(200.dp))
 
                 Text(
-                    text = "Tiderna för morgon & afton",
+                    text = "Info & lagar",
                     style = TextStyle(
                         fontFamily = AvenirFontFamily,
                         fontWeight = FontWeight.Bold,
                         fontSize = 38.sp,
-                        color = Color.White
+                        color = colorResource(id = R.color.gray)
                     ),
-                )
-                Spacer(modifier = Modifier.height(50.dp))
-                TimeRewardCard(
-                    title = "Morgon",
-                    titleColor = R.color.dark_orange,
-                    icon = R.drawable.morning_icon,
-                    iconWidth = 62,
-                    description = "Dens tid är efter fajr-bönen\n" +
-                            "fram till soluppgången",
-                )
-                // end of composable named TimeRewardCard
-                Spacer(modifier = Modifier.height(50.dp))
-
-                TimeRewardCard(
-                    title = "Afton",
-                    titleColor = R.color.dark_orange,
-                    icon = R.drawable.afton_icon,
-                    iconWidth = 58,
-                    description = "Dens tid är efter asr-bönen\n" +
-                            "fram till solnedgången"
                 )
             }
         }
@@ -98,6 +76,6 @@ fun TimesScreen(navController: NavController = rememberNavController()) {
 
 @Preview
 @Composable
-fun TimesScreenPreview() {
-    TimesScreen()
+fun InfoScreenPreview() {
+    InfoScreen()
 }

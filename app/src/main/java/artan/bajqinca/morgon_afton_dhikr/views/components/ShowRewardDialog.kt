@@ -64,7 +64,6 @@ fun ShowRewardDialog(
                 }
                 Spacer(modifier = Modifier.height(10.dp))
             }
-
             // Ensure this is the last declared composable in the Box
             Box(
                 modifier = Modifier

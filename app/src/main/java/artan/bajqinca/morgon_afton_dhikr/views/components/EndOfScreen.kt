@@ -14,6 +14,7 @@ import artan.bajqinca.morgon_afton_dhikr.R
 @Composable
 fun EndOfScreen() {
     Spacer(modifier = Modifier.height(40.dp))
+
     Box(
         modifier = Modifier
             .fillMaxWidth()

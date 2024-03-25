@@ -48,8 +48,7 @@ fun DrawerContentAdhkarScreen(
                 modifier = Modifier
                     .width(240.dp)
                     .fillMaxHeight()
-            )
-            {
+            ) {
                 Image(
                     painter = painterResource(id = R.drawable.islamic_graphic_bg),
                     contentDescription = "Settings Background",
@@ -63,6 +62,7 @@ fun DrawerContentAdhkarScreen(
                         .width(240.dp),
                 ) {
                     Spacer(modifier = Modifier.height(65.dp))
+
                     Image(
                         painter = painterResource(id = R.drawable.morgon_afton_logo),
                         contentDescription = "Morgon Afton Logo",
@@ -83,6 +83,7 @@ fun DrawerContentAdhkarScreen(
                             .padding(top = 8.dp)
                     )
                     Spacer(modifier = Modifier.height(37.dp))
+
                     Column(
                         modifier = Modifier
                             .fillMaxWidth(),
@@ -111,31 +112,36 @@ fun DrawerContentAdhkarScreen(
                             )
                         }
                         Spacer(modifier = Modifier.height(30.dp))
+
                         SettingsTextAndCheckmark(
                             text = "Arabiska",
                             initiallyTicked = false,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
-                            })
+                            }
+                        )
                         Spacer(modifier = Modifier.height(20.dp))
+
                         SettingsTextAndCheckmark(
                             text = "Översättning",
                             initiallyTicked = false,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
-                            })
+                            }
+                        )
                         Spacer(modifier = Modifier.height(20.dp))
+
                         SettingsTextAndCheckmark(
                             text = "Transliteration",
                             initiallyTicked = false,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
-                            })
+                            }
+                        )
                     }
-
                 }
             }
         }

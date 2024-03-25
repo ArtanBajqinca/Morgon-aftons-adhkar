@@ -26,6 +26,7 @@ import artan.bajqinca.morgon_afton_dhikr.font.NotoSansArabicFont
 @Composable
 fun AdhkarTitleDesc(title: String, arabicText: String, descriptionText: String) {
     Spacer(modifier = Modifier.height(40.dp))
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -64,6 +65,7 @@ fun AdhkarTitleDesc(title: String, arabicText: String, descriptionText: String) 
         )
     }
     Spacer(modifier = Modifier.height(30.dp))
+
     Row(
         modifier = Modifier
             .fillMaxWidth()

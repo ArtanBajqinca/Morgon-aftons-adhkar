@@ -22,6 +22,7 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController = rememberNavController()) {
+
     val scale = remember { Animatable(0f) }
 
     LaunchedEffect(key1 = true) {
@@ -35,13 +36,11 @@ fun SplashScreen(navController: NavController = rememberNavController()) {
         delay(800L)
         navController.navigate(ScreenRoutes.StartScreen.route)
     }
-
     Box(
         modifier = Modifier
             .fillMaxSize(),
         contentAlignment = Alignment.Center,
     ) {
-
         Image(
             painter = painterResource(id = R.drawable.splash_bg),
             contentDescription = "Background",
@@ -49,7 +48,6 @@ fun SplashScreen(navController: NavController = rememberNavController()) {
                 .fillMaxSize(),
             contentScale = ContentScale.Crop
         )
-
         Image(
             painter = painterResource(id = R.drawable.morgon_afton_logo),
             contentDescription = "Logo",

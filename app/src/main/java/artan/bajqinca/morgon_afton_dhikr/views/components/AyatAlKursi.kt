@@ -44,6 +44,7 @@ fun AyatAlKursi(
     source: String = "Den Ädla Koranen, 2:255"
 ){
     Spacer(modifier = Modifier.height(30.dp))
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -51,6 +52,7 @@ fun AyatAlKursi(
             .background(colorResource(id = R.color.extra_light_beige))
     )
     Spacer(modifier = Modifier.height(40.dp))
+
     Row(
         modifier = Modifier
             .fillMaxWidth(),
@@ -84,6 +86,7 @@ fun AyatAlKursi(
             .padding(horizontal = 24.dp),
     ) {
         Spacer(modifier = Modifier.height(40.dp))
+
         Text(
             text = swedishTitle,
             style = TextStyle(
@@ -94,7 +97,6 @@ fun AyatAlKursi(
             )
         )
         Spacer(modifier = Modifier.height(30.dp))
-
         // Swedish translation
         Text(
             text = swedishText,

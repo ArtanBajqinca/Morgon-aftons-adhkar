@@ -22,6 +22,7 @@ import artan.bajqinca.morgon_afton_dhikr.views.components.StartSettingsTab
 
 @Composable
 fun StartScreen(navController: NavController = rememberNavController()) {
+
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
 
@@ -79,8 +80,25 @@ fun StartScreen(navController: NavController = rememberNavController()) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
 fun PreviewStartScreen() {
     StartScreen()
 }
+
+//@Preview(showBackground = true)
+//@Composable
+//fun PreviewStartScreen() {
+//    ModalNavigationDrawer(
+//        drawerState = rememberDrawerState(initialValue = DrawerValue.Open),
+//        drawerContent = {
+//            DrawerContentStart(
+//                navController = rememberNavController(),
+//                drawerState = rememberDrawerState(initialValue = DrawerValue.Open),
+//                coroutineScope = rememberCoroutineScope()
+//            )
+//        }
+//    ) {
+//        StartScreen(rememberNavController())
+//    }
+//}

@@ -7,4 +7,5 @@ sealed class ScreenRoutes(val route: String){
     object AftonScreen: ScreenRoutes("afton_screen")
     object TimesScreen: ScreenRoutes("times_screen")
     object RewardScreen: ScreenRoutes("reward_screen")
+    object InfoScreen: ScreenRoutes("info_screen")
 }

@@ -21,6 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
+
 @Composable
 fun SettingsTextAndCheckmark(
     text: String,
@@ -51,8 +52,8 @@ fun SettingsTextAndCheckmark(
                     .width(25.dp)
             )
         }
-
         Spacer(modifier = Modifier.width(10.dp))
+
         Text(
             text = text,
             color = colorResource(id = R.color.light_beige),

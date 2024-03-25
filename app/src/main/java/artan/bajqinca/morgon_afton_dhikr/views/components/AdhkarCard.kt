@@ -51,7 +51,7 @@ fun AdhkarCard(
     svKapitel: String?,
     arKapitel: String?,
 
-) {
+    ) {
     var showDialog by remember { mutableStateOf(false) }
 
     if (showDialog && reward.isNotEmpty()) {
@@ -59,7 +59,6 @@ fun AdhkarCard(
             showDialog = false
         }
     }
-
     Spacer(modifier = Modifier.height(30.dp))
 
     Box(
@@ -120,7 +119,6 @@ fun AdhkarCard(
                 modifier = Modifier.alpha(0.5f)
             )
         }
-
 
         Spacer(modifier = Modifier.height(30.dp))
         // Transliteration

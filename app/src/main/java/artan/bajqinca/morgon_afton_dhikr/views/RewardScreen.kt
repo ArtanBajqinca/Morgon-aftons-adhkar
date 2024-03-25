@@ -45,6 +45,7 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
         Column()
         {
             Spacer(modifier = Modifier.height(80.dp))
+
             BackButton {
                 navController.popBackStack()
             }
@@ -60,6 +61,7 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
                 modifier = Modifier.width(310.dp),
             ) {
                 Spacer(modifier = Modifier.height(200.dp))
+
                 Text(
                     text = "Fördelarna \n" +
                             "med adhkar",
@@ -71,6 +73,7 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
                     ),
                 )
                 Spacer(modifier = Modifier.height(40.dp))
+
                 TimeRewardCard(
                     title = "Närhet till Allah",
                     titleColor = R.color.blue,
@@ -80,6 +83,7 @@ fun RewardScreen(navController: NavController = rememberNavController()) {
                 )
                 // end of composable named TimeRewardCard
                 Spacer(modifier = Modifier.height(40.dp))
+
                 TimeRewardCard(
                     title = "Sinnesro & lugn",
                     titleColor = R.color.blue,

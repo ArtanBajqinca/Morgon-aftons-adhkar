@@ -48,6 +48,7 @@ fun TimeRewardCard(
             )
         }
         Spacer(modifier = Modifier.width(20.dp))
+
         Image(
             painter = painterResource(id = icon),
             contentDescription = "Narhet Icon",
@@ -56,6 +57,7 @@ fun TimeRewardCard(
         )
     }
     Spacer(modifier = Modifier.height(15.dp))
+
     Text(
         text = description,
         style = TextStyle(

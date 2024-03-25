@@ -60,7 +60,6 @@ fun TopNavigationBar(
                 modifier = Modifier.size(30.dp)
             )
         }
-
         // Center - Title Text
         Text(
             text = title,
@@ -74,7 +73,6 @@ fun TopNavigationBar(
                 .padding(horizontal = 8.dp) // add padding to ensure title doesn't get squished
                 .padding(top = 2.dp)
         )
-
         // Right side - Menu Icon Box or Spacer if no menu icon is needed
         if (onMenuClick != {}) {
             Box(
