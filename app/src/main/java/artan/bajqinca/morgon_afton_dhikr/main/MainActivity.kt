@@ -9,8 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.navigation.Navigation
+import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 
 class MainActivity : ComponentActivity() {
+
+    private val viewModel = TextOptionsViewModel()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -18,7 +21,7 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier.fillMaxSize(),
                 color = colorResource(id = R.color.light_beige)
             ) {
-                Navigation()
+                Navigation(viewModel)
             }
         }
     }
