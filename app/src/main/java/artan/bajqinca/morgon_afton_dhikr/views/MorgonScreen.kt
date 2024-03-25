@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -57,10 +58,17 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
                         }
                     )
                     LazyColumn {
-                        items(list) { adhkar ->
-                            // Ayat al kursi
+                        item {
+                            AdhkarTitleDesc(
+                                arabicText = "اذكار الصباح",
+                                title = "Morgons adhkar",
+                                descriptionText = "Dens tid är efter fajr-bönen fram till soluppgången"
+                            )
+                        }
+                        itemsIndexed(list) { index, adhkar ->
                             if (adhkar.arKapitel != null) {
                                 AyatAlKursi(
+                                    number = index + 1,
                                     swedishTitle = adhkar.svKapitel,
                                     swedishText = adhkar.sv,
                                     transliteration = adhkar.transliteration,
@@ -68,12 +76,9 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
                                     arabicText = adhkar.ar,
                                     numberBackgroundColor = colorResource(id = R.color.dark_orange),
                                     source = adhkar.source
-                                )
-                            }
-                            // skips an adhkar to let ayat al kursi composable be displayed
-                            if (adhkar.id != 12) {
+                                ) } else if (adhkar.arKapitel == null) {
                                 AdhkarCard(
-                                    number = adhkar.id,
+                                    number = index + 1, // Use index + 1 as the ID so it starts from 1
                                     swedishText = adhkar.sv,
                                     arabicText = adhkar.ar,
                                     transliteration = adhkar.transliteration,

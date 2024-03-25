@@ -34,6 +34,7 @@ import artan.bajqinca.morgon_afton_dhikr.font.MeQuranTypography
 
 @Composable
 fun AyatAlKursi(
+    number: Int,
     swedishTitle: String,
     swedishText: String,
     transliteration: String,
@@ -67,7 +68,7 @@ fun AyatAlKursi(
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = "12",
+                text = number.toString(),
                 style = TextStyle(
                     fontFamily = AvenirFontFamily,
                     fontWeight = FontWeight.W600,
@@ -157,6 +158,7 @@ fun AyatAlKursiPreview() {
         arabicTitle = "آية الكرسي" ,
         arabicText = "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ\n\n ۞ اللَّهُُ لا إِلٰهَ إِلّا هُوَ الحَيُّ القَيّومُ لا تَأخُذُهُ سِنَةٌ وَلا نَومٌ لَهُ ما فِي السَّماواتِ وَما فِي الأَرضِ مَن ذَا الَّذي يَشفَعُ عِندَهُ إِلّا بِإِذنِهِ يَعلَمُ ما بَينَ أَيديهِم وَما خَلفَهُم وَلا يُحيطونَ بِشَيءٍ مِن عِلمِهِ إِلّا بِما شاءَ وَسِعَ كُرسِيُّهُ السَّماواتِ وَالأَرضَ وَلا يَئودُهُ حِفظُهُما وَهُوَ العَلِيُّ العَظيمُ ۞",
         numberBackgroundColor = colorResource(id = R.color.blue),
-        source = "Den Ädla Koranen, 2:255"
+        source = "Den Ädla Koranen, 2:255",
+        number = 1
     )
 }

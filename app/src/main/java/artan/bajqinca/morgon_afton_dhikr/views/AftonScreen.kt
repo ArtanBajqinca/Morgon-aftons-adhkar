@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
@@ -65,29 +66,26 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                                 descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
                             )
                         }
-                        items(list) { adhkar ->
-                            // Ayat al kursi
+                        itemsIndexed(list) { index, adhkar ->
                             if (adhkar.arKapitel != null) {
                                 AyatAlKursi(
+                                    number = index + 1,
                                     swedishTitle = adhkar.svKapitel,
                                     swedishText = adhkar.sv,
                                     transliteration = adhkar.transliteration,
                                     arabicTitle = adhkar.arKapitel ,
                                     arabicText = adhkar.ar,
-                                    numberBackgroundColor = colorResource(id = R.color.blue),
+                                    numberBackgroundColor = colorResource(id = R.color.dark_orange),
                                     source = adhkar.source
-                                )
-                            }
-                            // skips an adhkar to let ayat al kursi composable be displayed
-                            if (adhkar.id != 12) {
+                                ) } else if (adhkar.arKapitel == null) {
                                 AdhkarCard(
-                                    number = adhkar.id,
+                                    number = index + 1, // Use index + 1 as the ID so it starts from 1
                                     swedishText = adhkar.sv,
                                     arabicText = adhkar.ar,
                                     transliteration = adhkar.transliteration,
                                     source = adhkar.source,
                                     reward = adhkar.reward,
-                                    numberBackgroundColor = colorResource(id = R.color.blue),
+                                    numberBackgroundColor = colorResource(id = R.color.dark_orange),
                                     svKapitel = adhkar.svKapitel,
                                     arKapitel = adhkar.arKapitel,
                                     repetitionText = adhkar.repetitionText,
