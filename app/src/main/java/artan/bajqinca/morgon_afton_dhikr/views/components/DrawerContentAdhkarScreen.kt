@@ -20,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -39,7 +40,7 @@ fun DrawerContentAdhkarScreen(
     viewModel: TextOptionsViewModel,
     coroutineScope: CoroutineScope
 ) {
-
+    val context = LocalContext.current
     ModalDrawerSheet(
         drawerShape = RectangleShape,
     ) {
@@ -121,7 +122,7 @@ fun DrawerContentAdhkarScreen(
                             initiallyTicked = viewModel.showArabic,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
-                                viewModel.setArabicVisibility(isChecked)
+                                viewModel.setArabicVisibility(isChecked, context)
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )
@@ -132,7 +133,7 @@ fun DrawerContentAdhkarScreen(
                             initiallyTicked = viewModel.showTranslation,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
-                                viewModel.setTranslationVisibility(isChecked)
+                                viewModel.setTranslationVisibility(isChecked, context)
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )
@@ -141,9 +142,10 @@ fun DrawerContentAdhkarScreen(
                         SettingsTextAndCheckmark(
                             text = "Transliteration",
                             initiallyTicked = viewModel.showTransliteration,
+
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
-                                viewModel.setTransliterationVisibility(isChecked)
+                                viewModel.setTransliterationVisibility(isChecked, context)
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )

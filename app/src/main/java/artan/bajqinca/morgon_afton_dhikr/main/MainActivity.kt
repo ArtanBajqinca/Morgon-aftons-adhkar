@@ -13,9 +13,11 @@ import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 
 class MainActivity : ComponentActivity() {
 
-    private val viewModel = TextOptionsViewModel()
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val viewModel = TextOptionsViewModel(this)
         setContent {
             Surface(
                 modifier = Modifier.fillMaxSize(),
