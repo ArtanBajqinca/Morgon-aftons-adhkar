@@ -29,14 +29,17 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
+import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 import kotlinx.coroutines.CoroutineScope
 
 @Composable
 fun DrawerContentAdhkarScreen(
     navController: NavController,
     drawerState: DrawerState,
+    viewModel: TextOptionsViewModel,
     coroutineScope: CoroutineScope
 ) {
+
     ModalDrawerSheet(
         drawerShape = RectangleShape,
     ) {
@@ -115,9 +118,10 @@ fun DrawerContentAdhkarScreen(
 
                         SettingsTextAndCheckmark(
                             text = "Arabiska",
-                            initiallyTicked = false,
+                            initiallyTicked = viewModel.showArabic,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
+                                viewModel.setArabicVisibility(isChecked)
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )
@@ -125,9 +129,10 @@ fun DrawerContentAdhkarScreen(
 
                         SettingsTextAndCheckmark(
                             text = "Översättning",
-                            initiallyTicked = false,
+                            initiallyTicked = viewModel.showTranslation,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
+                                viewModel.setTranslationVisibility(isChecked)
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )
@@ -135,9 +140,10 @@ fun DrawerContentAdhkarScreen(
 
                         SettingsTextAndCheckmark(
                             text = "Transliteration",
-                            initiallyTicked = false,
+                            initiallyTicked = viewModel.showTransliteration,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
+                                viewModel.setTransliterationVisibility(isChecked)
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )

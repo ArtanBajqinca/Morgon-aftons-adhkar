@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
+import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
 import artan.bajqinca.morgon_afton_dhikr.views.components.AyatAlKursi
@@ -25,7 +26,7 @@ import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
 import kotlinx.coroutines.launch
 
 @Composable
-fun MorgonScreen(navController: NavController = rememberNavController()) {
+fun MorgonScreen(navController: NavController = rememberNavController(), viewModel: TextOptionsViewModel) {
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
@@ -37,7 +38,7 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
             drawerState = drawerState,
             drawerContent = {
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-                    DrawerContentAdhkarScreen(navController, drawerState, coroutineScope)
+                    DrawerContentAdhkarScreen(navController, drawerState, viewModel, coroutineScope)
                 }
             }
         ) {
@@ -69,18 +70,18 @@ fun MorgonScreen(navController: NavController = rememberNavController()) {
                                 AyatAlKursi(
                                     number = index + 1,
                                     swedishTitle = adhkar.svKapitel,
-                                    swedishText = adhkar.sv,
-                                    transliteration = adhkar.transliteration,
-                                    arabicTitle = adhkar.arKapitel ,
-                                    arabicText = adhkar.ar,
+                                    swedishText = if (viewModel.showTranslation) adhkar.sv else "",
+                                    transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
+                                    arabicTitle = if (viewModel.showArabic) adhkar.arKapitel else "",
+                                    arabicText = if (viewModel.showArabic) adhkar.ar else "",
                                     numberBackgroundColor = colorResource(id = R.color.dark_orange),
                                     source = adhkar.source
                                 ) } else
                                 AdhkarCard(
                                     number = index + 1, // Use index + 1 as the ID so it starts from 1
-                                    swedishText = adhkar.sv,
-                                    arabicText = adhkar.ar,
-                                    transliteration = adhkar.transliteration,
+                                    swedishText = if (viewModel.showTranslation) adhkar.sv else "",
+                                    arabicText = if (viewModel.showArabic) adhkar.ar else "",
+                                    transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
                                     source = adhkar.source,
                                     reward = adhkar.reward,
                                     numberBackgroundColor = colorResource(id = R.color.dark_orange),

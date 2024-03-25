@@ -36,6 +36,7 @@ import artan.bajqinca.morgon_afton_dhikr.R
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirFontFamily
 import artan.bajqinca.morgon_afton_dhikr.font.AvenirTypography
 import artan.bajqinca.morgon_afton_dhikr.font.MeQuranTypography
+import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 
 @Composable
 fun AdhkarCard(
@@ -104,52 +105,60 @@ fun AdhkarCard(
         }
         Spacer(modifier = Modifier.height(30.dp))
         // Swedish text
-        Text(
-            text = swedishText,
-            style = AvenirTypography.titleMedium,
-            color = colorResource(id = R.color.gray)
-        )
-        Spacer(modifier = Modifier.height(13.dp))
-        // Repetition sv
-        if (!repetitionText.isNullOrEmpty()) {
+        if (swedishText.isNotEmpty()) {
             Text(
-                text = repetitionText,
+                text = swedishText,
+                style = AvenirTypography.titleMedium,
+                color = colorResource(id = R.color.gray)
+            )
+            Spacer(modifier = Modifier.height(13.dp))
+            // Repetition sv
+            if (!repetitionText.isNullOrEmpty()) {
+                Text(
+                    text = repetitionText,
+                    style = AvenirTypography.titleSmall,
+                    color = colorResource(id = R.color.gray),
+                    modifier = Modifier.alpha(0.5f)
+                )
+            }
+
+            Spacer(modifier = Modifier.height(30.dp))
+        }
+
+        // Transliteration
+        if (transliteration.isNotEmpty()) {
+            Text(
+                text = transliteration,
+                style = AvenirTypography.titleMedium,
+                color = colorResource(id = R.color.gray)
+            )
+            Spacer(modifier = Modifier.height(13.dp))
+            Text(
+                text = repetitionText ?: "",
                 style = AvenirTypography.titleSmall,
                 color = colorResource(id = R.color.gray),
                 modifier = Modifier.alpha(0.5f)
             )
+            Spacer(modifier = Modifier.height(10.dp))
         }
 
-        Spacer(modifier = Modifier.height(30.dp))
-        // Transliteration
-        Text(
-            text = transliteration,
-            style = AvenirTypography.titleMedium,
-            color = colorResource(id = R.color.gray)
-        )
-        Spacer(modifier = Modifier.height(13.dp))
-        Text(
-            text = repetitionText ?: "",
-            style = AvenirTypography.titleSmall,
-            color = colorResource(id = R.color.gray),
-            modifier = Modifier.alpha(0.5f)
-        )
-        Spacer(modifier = Modifier.height(10.dp))
-
-        CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-            // Arabic text
-            Column(
-                modifier = Modifier.fillMaxWidth(),
-                horizontalAlignment = Alignment.Start
-            ) {
-                Text(
-                    text = arabicText,
-                    style = MeQuranTypography.titleMedium,
-                    color = colorResource(id = R.color.gray)
-                )
+        if (arabicText.isNotEmpty()) {
+            CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
+                // Arabic text
+                Column(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalAlignment = Alignment.Start
+                ) {
+                    Text(
+                        text = arabicText,
+                        style = MeQuranTypography.titleMedium,
+                        color = colorResource(id = R.color.gray)
+                    )
+                }
             }
+            Spacer(modifier = Modifier.height(0.dp))
         }
-        Spacer(modifier = Modifier.height(0.dp))
+
         // Repetition ar
         Column(
             modifier = Modifier.fillMaxWidth(),

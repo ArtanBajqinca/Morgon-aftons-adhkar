@@ -16,6 +16,7 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
+import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
 import artan.bajqinca.morgon_afton_dhikr.views.components.AyatAlKursi
@@ -25,7 +26,7 @@ import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
 import kotlinx.coroutines.launch
 
 @Composable
-fun AftonScreen(navController: NavController = rememberNavController()) {
+fun AftonScreen(navController: NavController = rememberNavController(), viewModel: TextOptionsViewModel) {
 
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
@@ -37,7 +38,7 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
             drawerState = drawerState,
             drawerContent = {
                 CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Ltr) {
-                    DrawerContentAdhkarScreen(navController, drawerState, coroutineScope)
+                    DrawerContentAdhkarScreen(navController, drawerState, viewModel, coroutineScope)
                 }
             }
         ) {
@@ -78,9 +79,9 @@ fun AftonScreen(navController: NavController = rememberNavController()) {
                                 ) } else
                                 AdhkarCard(
                                     number = index + 1, // Use index + 1 as the ID so it starts from 1
-                                    swedishText = adhkar.sv,
-                                    arabicText = adhkar.ar,
-                                    transliteration = adhkar.transliteration,
+                                    swedishText = if (viewModel.showTranslation) adhkar.sv else "",
+                                    arabicText = if (viewModel.showArabic) adhkar.ar else "",
+                                    transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
                                     source = adhkar.source,
                                     reward = adhkar.reward,
                                     numberBackgroundColor = colorResource(id = R.color.blue),
