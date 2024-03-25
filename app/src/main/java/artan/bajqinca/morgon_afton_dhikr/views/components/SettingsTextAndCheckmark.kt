@@ -28,7 +28,7 @@ fun SettingsTextAndCheckmark(
     initiallyTicked: Boolean = false,
     onCheckedChange: (Boolean) -> Unit
 ) {
-    var isTicked by remember { mutableStateOf(initiallyTicked) }
+    var isTicked = initiallyTicked
 
     Row(
         modifier = Modifier

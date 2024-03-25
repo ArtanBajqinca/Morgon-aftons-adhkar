@@ -14,15 +14,18 @@ class TextOptionsViewModel() : ViewModel() {
         private set
 
     fun setArabicVisibility(visible: Boolean) {
-        showArabic = visible
+        val canHide = showTransliteration || showTranslation
+        showArabic = visible || !canHide
     }
 
     fun setTransliterationVisibility(visible: Boolean) {
-        showTransliteration = visible
+        val canHide = showArabic || showTranslation
+        showTransliteration = visible || !canHide
     }
 
     fun setTranslationVisibility(visible: Boolean) {
-        showTranslation = visible
+        val canHide = showArabic || showTransliteration
+        showTranslation = visible || !canHide
     }
 
 }
