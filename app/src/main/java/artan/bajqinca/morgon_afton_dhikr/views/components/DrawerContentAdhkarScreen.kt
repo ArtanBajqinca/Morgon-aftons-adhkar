@@ -74,18 +74,6 @@ fun DrawerContentAdhkarScreen(
                             .width(126.dp)
                             .align(Alignment.CenterHorizontally)
                     )
-                    Text(
-                        text = "Version 1.0",
-                        color = colorResource(id = R.color.light_beige),
-                        style = TextStyle(
-                            fontFamily = AvenirFontFamily,
-                            fontWeight = FontWeight.Light,
-                            fontSize = 14.sp
-                        ),
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
-                            .padding(top = 8.dp)
-                    )
                     Spacer(modifier = Modifier.height(37.dp))
 
                     Column(

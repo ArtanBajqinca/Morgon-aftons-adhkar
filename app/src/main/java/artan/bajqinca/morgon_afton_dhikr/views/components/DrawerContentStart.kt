@@ -73,18 +73,6 @@ fun DrawerContentStart(
                             .width(126.dp)
                             .align(Alignment.CenterHorizontally) // Center the logo
                     )
-                    Text(
-                        text = "Version 1.0",
-                        color = colorResource(id = R.color.light_beige),
-                        style = TextStyle(
-                            fontFamily = AvenirFontFamily,
-                            fontWeight = FontWeight.Light,
-                            fontSize = 14.sp
-                        ),
-                        modifier = Modifier
-                            .align(Alignment.CenterHorizontally)
-                            .padding(top = 8.dp)
-                    )
                     Spacer(modifier = Modifier.height(47.dp))
 
                     StartSettingsButton(

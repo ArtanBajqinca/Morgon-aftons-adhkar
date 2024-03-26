@@ -145,7 +145,8 @@ fun AyatAlKursi(
                 if(arabicTitle.isNotEmpty()) {
                     Text(
                         modifier = Modifier
-                            .padding(bottom = 30.dp),
+                            .padding(bottom = 30.dp)
+                            .padding(top = if (swedishText.isEmpty() && transliteration.isEmpty()) 30.dp else 0.dp),
                         text = arabicTitle,
                         style = TextStyle(
                             fontFamily = MeQuranFont,
@@ -219,9 +220,9 @@ fun AyatAlKursiPreview() {
             .background(colorResource(id = R.color.light_beige))
     ) {
         AyatAlKursi(
-            swedishTitle = "Ayat al-Kursi",
-            swedishText = " Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige",
-            transliteration = "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige",
+            swedishTitle = "",
+            swedishText = "",
+            transliteration = "",
             arabicTitle = " آية الكرسي",
             arabicText = " عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
             numberBackgroundColor = colorResource(id = R.color.blue),
