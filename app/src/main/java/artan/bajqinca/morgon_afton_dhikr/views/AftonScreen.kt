@@ -70,10 +70,10 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
                                 AyatAlKursi(
                                     number = index + 1,
                                     swedishTitle = adhkar.svKapitel,
-                                    swedishText = adhkar.sv,
-                                    transliteration = adhkar.transliteration,
-                                    arabicTitle = adhkar.arKapitel ,
-                                    arabicText = adhkar.ar,
+                                    swedishText = if (viewModel.showTranslation) adhkar.sv else "",
+                                    transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
+                                    arabicTitle = if (viewModel.showArabic) adhkar.arKapitel else "",
+                                    arabicText = if (viewModel.showArabic) adhkar.ar else "",
                                     numberBackgroundColor = colorResource(id = R.color.blue),
                                     source = adhkar.source,
                                     reward = adhkar.reward
