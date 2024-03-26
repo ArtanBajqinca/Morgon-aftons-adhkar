@@ -1,6 +1,7 @@
 package artan.bajqinca.morgon_afton_dhikr.views.components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -15,6 +16,10 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -42,8 +47,17 @@ fun AyatAlKursi(
     arabicTitle: String,
     arabicText: String,
     numberBackgroundColor: Color,
+    reward: String = "",
     source: String = "Den Ädla Koranen, 2:255"
 ){
+    var showDialog by remember { mutableStateOf(false) }
+
+    if (showDialog && reward.isNotEmpty()) {
+        ShowRewardDialog(rewardText = reward) {
+            showDialog = false
+        }
+    }
+
     Spacer(modifier = Modifier.height(30.dp))
 
     Box(
@@ -154,16 +168,44 @@ fun AyatAlKursi(
                 }
             }
         }
-        Text(
-            text = source,
-            style = TextStyle(
-                fontFamily = AvenirFontFamily,
-                fontSize = 14.sp,
-                fontWeight = FontWeight.Normal,
-                lineHeight = 26.sp,
-                color = colorResource(id = R.color.gray)
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Text(
+                text = source,
+                style = TextStyle(
+                    fontFamily = AvenirFontFamily,
+                    fontSize = 14.sp,
+                    fontWeight = FontWeight.Normal,
+                    lineHeight = 26.sp,
+                    color = colorResource(id = R.color.gray)
+                )
             )
-        )
+            Spacer(modifier = Modifier.width(20.dp))
+
+            if (reward.isNotEmpty()) {
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(10.dp))
+                        .background(Color(0xFFBEB283))
+                        .clickable { showDialog = true }
+                        .padding(horizontal = 10.dp, vertical = 5.dp)
+                        .padding(top = 4.dp),
+                ) {
+                    Text(
+                        text = "LÄS BELÖNING".uppercase(),
+                        style = TextStyle(
+                            fontFamily = AvenirFontFamily,
+                            fontSize = 14.sp,
+                            fontWeight = FontWeight.Bold,
+                            letterSpacing = 1.1.sp,
+                            color = colorResource(id = R.color.light_beige)
+                        )
+                    )
+                }
+            }
+        }
     }
 }
 
@@ -184,7 +226,8 @@ fun AyatAlKursiPreview() {
             arabicText = " عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
             numberBackgroundColor = colorResource(id = R.color.blue),
             source = "Den Ädla Koranen, 2:255",
-            number = 1
+            number = 1,
+            reward = "Den som reciterar Ayat al-Kursi efter varje obligatorisk bön, kommer inte att hindras från att komma in i paradiset utom av döden"
         )
     }
 }

@@ -217,6 +217,7 @@ fun AdhkarCard(
                             fontFamily = AvenirFontFamily,
                             fontSize = 14.sp,
                             fontWeight = FontWeight.Bold,
+                            letterSpacing = 1.1.sp,
                             color = colorResource(id = R.color.light_beige)
                         )
                     )

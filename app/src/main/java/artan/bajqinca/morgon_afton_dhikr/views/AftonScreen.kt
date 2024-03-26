@@ -66,7 +66,7 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
                             )
                         }
                         itemsIndexed(list) { index, adhkar ->
-                            if (adhkar.arKapitel != null) {
+                            if (!adhkar.arKapitel.isNullOrEmpty()) {
                                 AyatAlKursi(
                                     number = index + 1,
                                     swedishTitle = adhkar.svKapitel,
@@ -75,7 +75,8 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
                                     arabicTitle = adhkar.arKapitel ,
                                     arabicText = adhkar.ar,
                                     numberBackgroundColor = colorResource(id = R.color.blue),
-                                    source = adhkar.source
+                                    source = adhkar.source,
+                                    reward = adhkar.reward
                                 ) } else
                                 AdhkarCard(
                                     number = index + 1, // Use index + 1 as the ID so it starts from 1

@@ -66,7 +66,7 @@ fun MorgonScreen(navController: NavController = rememberNavController(), viewMod
                             )
                         }
                         itemsIndexed(list) { index, adhkar ->
-                            if (adhkar.arKapitel != null) {
+                            if (!adhkar.arKapitel.isNullOrEmpty()) {
                                 AyatAlKursi(
                                     number = index + 1,
                                     swedishTitle = adhkar.svKapitel,
@@ -75,7 +75,8 @@ fun MorgonScreen(navController: NavController = rememberNavController(), viewMod
                                     arabicTitle = if (viewModel.showArabic) adhkar.arKapitel else "",
                                     arabicText = if (viewModel.showArabic) adhkar.ar else "",
                                     numberBackgroundColor = colorResource(id = R.color.dark_orange),
-                                    source = adhkar.source
+                                    source = adhkar.source,
+                                    reward = adhkar.reward
                                 ) } else
                                 AdhkarCard(
                                     number = index + 1, // Use index + 1 as the ID so it starts from 1
