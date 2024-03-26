@@ -37,7 +37,7 @@ fun InfoScreen(navController: NavController = rememberNavController()) {
     Box(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.light_beige)),
+            .background(colorResource(id = R.color.dark_beige)),
     ){
         Image(
             modifier = Modifier.fillMaxSize(),
