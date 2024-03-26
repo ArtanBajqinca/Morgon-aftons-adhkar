@@ -101,7 +101,7 @@ fun AyatAlKursi(
             .padding(horizontal = 24.dp),
     ) {
         // Swedish title
-        if(swedishTitle.isNotEmpty()) {
+        if(swedishTitle.isNotEmpty() && swedishText.isNotEmpty() || transliteration.isNotEmpty()) {
             Text(
                 modifier = Modifier
                     .padding(vertical = 30.dp),
