@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -51,7 +52,7 @@ fun AyatAlKursi(
             .height(10.dp)
             .background(colorResource(id = R.color.extra_light_beige))
     )
-    Spacer(modifier = Modifier.height(40.dp))
+    Spacer(modifier = Modifier.height(30.dp))
 
     Row(
         modifier = Modifier
@@ -85,32 +86,41 @@ fun AyatAlKursi(
             .fillMaxWidth()
             .padding(horizontal = 24.dp),
     ) {
-        Spacer(modifier = Modifier.height(40.dp))
-
-        Text(
-            text = swedishTitle,
-            style = TextStyle(
-                fontFamily = AvenirFontFamily,
-                fontWeight = FontWeight.Bold,
-                fontSize = 24.sp,
-                color = numberBackgroundColor
+        // Swedish title
+        if(swedishTitle.isNotEmpty()) {
+            Text(
+                modifier = Modifier
+                    .padding(vertical = 30.dp),
+                text = swedishTitle,
+                style = TextStyle(
+                    fontFamily = AvenirFontFamily,
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 24.sp,
+                    color = numberBackgroundColor
+                )
             )
-        )
-        Spacer(modifier = Modifier.height(30.dp))
+        }
+
         // Swedish translation
-        Text(
-            text = swedishText,
-            style = AvenirTypography.titleMedium,
-            color = colorResource(id = R.color.gray)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
+        if(swedishText.isNotEmpty()) {
+            Text(
+                modifier = Modifier
+                    .padding(bottom = 30.dp),
+                text = swedishText,
+                style = AvenirTypography.titleMedium,
+                color = colorResource(id = R.color.gray)
+            )
+        }
         // Transliteration
-        Text(
-            text = transliteration,
-            style = AvenirTypography.titleMedium,
-            color = colorResource(id = R.color.gray)
-        )
-        Spacer(modifier = Modifier.height(30.dp))
+        if(transliteration.isNotEmpty()) {
+            Text(
+                modifier = Modifier
+                    .padding(bottom = 30.dp),
+                text = transliteration,
+                style = AvenirTypography.titleMedium,
+                color = colorResource(id = R.color.gray)
+            )
+        }
 
         Column(
             modifier = Modifier.fillMaxWidth(),
@@ -118,24 +128,31 @@ fun AyatAlKursi(
         ) {
             // Arabic title
             CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
-                Text(
-                    text = arabicTitle,
-                    style = TextStyle(
-                        fontFamily = MeQuranFont,
-                        fontSize = 31.sp,
-                        letterSpacing = 5.sp,
-                        color = numberBackgroundColor
+                if(arabicTitle.isNotEmpty()) {
+                    Text(
+                        modifier = Modifier
+                            .padding(bottom = 30.dp),
+                        text = arabicTitle,
+                        style = TextStyle(
+                            fontFamily = MeQuranFont,
+                            fontSize = 31.sp,
+                            letterSpacing = 5.sp,
+                            color = numberBackgroundColor
+                        )
                     )
-                )
-                Spacer(modifier = Modifier.height(30.dp))
-                // Quran arabic text
-                Text(
-                    text = arabicText,
-                    style = MeQuranTypography.titleMedium,
-                    color = colorResource(id = R.color.gray)
-                )
+                }
+
+                if(arabicText.isNotEmpty()) {
+                    // Quran arabic text
+                    Text(
+                        modifier = Modifier
+                            .padding(bottom = 40.dp),
+                        text = arabicText,
+                        style = MeQuranTypography.titleMedium,
+                        color = colorResource(id = R.color.gray)
+                    )
+                }
             }
-            Spacer(modifier = Modifier.height(30.dp))
         }
         Text(
             text = source,
@@ -153,14 +170,21 @@ fun AyatAlKursi(
 @Preview
 @Composable
 fun AyatAlKursiPreview() {
-    AyatAlKursi(
-        swedishTitle = "Ayat al-Kursi",
-        swedishText =  "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige Vidmakthållare. Slummer överraskar Honom inte och inte heller sömn. Honom tillhör allt det som himlarna rymmer och det som jorden bär. Vem är den som vågar tala [för någon] inför Honom utan Hans tillstånd? Han vet allt vad [människor] kan veta och allt som är dolt för dem och av Hans kunskap kan de inte omfatta mer än Han tillåter. Hans fotpall omsluter himlarna och jorden. Att värna och bevara dem är för Honom ingen börda. Han är den Höge, den Väldige.",
-        transliteration = "Allahu lâ ilâha illâ Huwal-Hayyul-Qayyûm, lâ ta´khuthuhu sinatun wa lâ nawm, lahu mâ fis-samâwâti wa mâfil-ardh, man thal-lathî yashfa'u 'indahu illâ bi'ithnih, ya'lamu mâ bayna aydîhim wa mâ khalfahum, wa lâ yuhîtûna bishay´im-min 'ilmihi illâ bimâ shâ´a, wasi'a kursiyyuhus-samâwâti wal ardha, wa lâ ya'ûduhu hifdhuhumâ, wa Huwal-'Aliyyul-'Adhîm.",
-        arabicTitle = "آية الكرسي" ,
-        arabicText = "أَعُوذُ بِاللَّهِ مِنَ الشَّيْطَانِ الرَّجِيمِ\n\n ۞ اللَّهُُ لا إِلٰهَ إِلّا هُوَ الحَيُّ القَيّومُ لا تَأخُذُهُ سِنَةٌ وَلا نَومٌ لَهُ ما فِي السَّماواتِ وَما فِي الأَرضِ مَن ذَا الَّذي يَشفَعُ عِندَهُ إِلّا بِإِذنِهِ يَعلَمُ ما بَينَ أَيديهِم وَما خَلفَهُم وَلا يُحيطونَ بِشَيءٍ مِن عِلمِهِ إِلّا بِما شاءَ وَسِعَ كُرسِيُّهُ السَّماواتِ وَالأَرضَ وَلا يَئودُهُ حِفظُهُما وَهُوَ العَلِيُّ العَظيمُ ۞",
-        numberBackgroundColor = colorResource(id = R.color.blue),
-        source = "Den Ädla Koranen, 2:255",
-        number = 1
-    )
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .background(colorResource(id = R.color.light_beige))
+    ) {
+        AyatAlKursi(
+            swedishTitle = "Ayat al-Kursi",
+            swedishText = " Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige",
+            transliteration = "Allah! - det finns ingen sann gud utom Han, den Levande, skapelsens evige",
+            arabicTitle = " آية الكرسي",
+            arabicText = " عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمَاوَاتِ وَالْأَرْضَ ۖ وَلَا يَئُودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ",
+            numberBackgroundColor = colorResource(id = R.color.blue),
+            source = "Den Ädla Koranen, 2:255",
+            number = 1
+        )
+    }
 }

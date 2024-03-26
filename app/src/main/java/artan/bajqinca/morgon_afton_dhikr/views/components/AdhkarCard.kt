@@ -74,7 +74,7 @@ fun AdhkarCard(
             .background(colorResource(id = R.color.light_beige))
             .padding(horizontal = 24.dp),
     ) {
-        Spacer(modifier = Modifier.height(40.dp))
+        Spacer(modifier = Modifier.height(30.dp))
 
         Row(
             modifier = Modifier
@@ -107,39 +107,45 @@ fun AdhkarCard(
         // Swedish text
         if (swedishText.isNotEmpty()) {
             Text(
+                modifier = if (repetitionText.isNullOrEmpty()) Modifier.padding(bottom = 30.dp)
+                else Modifier.padding(bottom = 13.dp),
                 text = swedishText,
                 style = AvenirTypography.titleMedium,
                 color = colorResource(id = R.color.gray)
             )
-            Spacer(modifier = Modifier.height(13.dp))
             // Repetition sv
             if (!repetitionText.isNullOrEmpty()) {
                 Text(
+                    modifier = Modifier
+                        .alpha(0.5f)
+                        .padding(bottom = 30.dp),
                     text = repetitionText,
                     style = AvenirTypography.titleSmall,
                     color = colorResource(id = R.color.gray),
-                    modifier = Modifier.alpha(0.5f)
                 )
             }
-
-            Spacer(modifier = Modifier.height(30.dp))
         }
 
         // Transliteration
         if (transliteration.isNotEmpty()) {
             Text(
+                modifier = if (repetitionText.isNullOrEmpty()) Modifier.padding(bottom = 30.dp)
+                else Modifier.padding(bottom = 13.dp),
                 text = transliteration,
                 style = AvenirTypography.titleMedium,
                 color = colorResource(id = R.color.gray)
             )
-            Spacer(modifier = Modifier.height(13.dp))
-            Text(
-                text = repetitionText ?: "",
-                style = AvenirTypography.titleSmall,
-                color = colorResource(id = R.color.gray),
-                modifier = Modifier.alpha(0.5f)
-            )
-            Spacer(modifier = Modifier.height(10.dp))
+            // Repetition transliteration
+            if(!repetitionText.isNullOrEmpty()) {
+                Text(
+                    modifier = Modifier
+                        .alpha(0.5f)
+                        .padding(bottom = 30.dp),
+                    text = repetitionText ?: "",
+                    style = AvenirTypography.titleSmall,
+                    color = colorResource(id = R.color.gray),
+                )
+            }
         }
 
         if (arabicText.isNotEmpty()) {
@@ -149,14 +155,18 @@ fun AdhkarCard(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalAlignment = Alignment.Start
                 ) {
-                    Text(
-                        text = arabicText,
-                        style = MeQuranTypography.titleMedium,
-                        color = colorResource(id = R.color.gray)
-                    )
+                    if(arabicText.isNotEmpty()) {
+                        Text(
+                            modifier = if (repetitionTextArabic.isNullOrEmpty())
+                                Modifier.padding(bottom = 40.dp)
+                            else Modifier.padding(bottom = 0.dp),
+                            text = arabicText,
+                            style = MeQuranTypography.titleMedium,
+                            color = colorResource(id = R.color.gray)
+                        )
+                    }
                 }
             }
-            Spacer(modifier = Modifier.height(0.dp))
         }
 
         // Repetition ar
@@ -164,18 +174,17 @@ fun AdhkarCard(
             modifier = Modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.End
         ) {
-            Text(
-                text = repetitionTextArabic ?: "",
-                style = MeQuranTypography.titleSmall,
-                color = colorResource(id = R.color.gray),
-                modifier = Modifier.alpha(0.5f)
-            )
+            if (!repetitionTextArabic.isNullOrEmpty() && arabicText != "") {
+                Text(
+                    modifier = Modifier
+                        .alpha(0.5f)
+                        .padding(bottom = 30.dp),
+                    text = repetitionTextArabic ?: "",
+                    style = MeQuranTypography.titleSmall,
+                    color = colorResource(id = R.color.gray),
+                )
+            }
         }
-        if(repetitionTextArabic != null) {
-            Spacer(modifier = Modifier.height(10.dp))
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-
         Row(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically
@@ -190,6 +199,7 @@ fun AdhkarCard(
                     color = colorResource(id = R.color.gray)
                 )
             )
+
             Spacer(modifier = Modifier.width(20.dp))
 
             if (reward.isNotEmpty()) {
@@ -221,15 +231,15 @@ fun AdhkarCard(
 fun PreviewAdhkarCard() {
     AdhkarCard(
         number = 1,
-        swedishText = "I Guds namn, jag dör och jag lever, (och jag gör det) för Din skull.",
-        arabicText = "بِاسْمِكَ اللَّهُمَّ أَمُوتُ وَأَحْيَا",
-        transliteration = "Bismika allahumma amutu wa ahya",
+        swedishText = "Vi har kommit till kvällen och kungadömet tillhör Allah",
+        arabicText ="أَصْبَحْنَا وَأَصْبَحَ الْمُلْكُ لِلَّهِ",
+        transliteration = "Asbahna wa asbahal mulku lillah",
         source = "Bukhari",
-        reward = "",
+        reward = "hej",
         numberBackgroundColor = colorResource(id = R.color.blue),
-        svKapitel = "Kapitel 1",
-        arKapitel = "الفصل الأول",
-        repetitionText = "(Läses tre gånger)",
-        repetitionTextArabic = "(ثَلَاثَ مَرَّات)"
+        svKapitel = "",
+        arKapitel = "",
+        repetitionText = "",
+        repetitionTextArabic = "3 gånger"
     )
 }

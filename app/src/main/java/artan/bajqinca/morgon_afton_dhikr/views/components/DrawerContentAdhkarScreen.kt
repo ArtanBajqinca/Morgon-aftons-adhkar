@@ -118,18 +118,7 @@ fun DrawerContentAdhkarScreen(
                         Spacer(modifier = Modifier.height(30.dp))
 
                         SettingsTextAndCheckmark(
-                            text = "Arabiska",
-                            initiallyTicked = viewModel.showArabic,
-                            onCheckedChange = { isChecked ->
-                                // Handle checkmark state change
-                                viewModel.setArabicVisibility(isChecked, context)
-                                println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
-                            }
-                        )
-                        Spacer(modifier = Modifier.height(20.dp))
-
-                        SettingsTextAndCheckmark(
-                            text = "Översättning",
+                            text = "Svenska",
                             initiallyTicked = viewModel.showTranslation,
                             onCheckedChange = { isChecked ->
                                 // Handle checkmark state change
@@ -149,6 +138,18 @@ fun DrawerContentAdhkarScreen(
                                 println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
                             }
                         )
+                        Spacer(modifier = Modifier.height(20.dp))
+
+                        SettingsTextAndCheckmark(
+                            text = "Arabiska",
+                            initiallyTicked = viewModel.showArabic,
+                            onCheckedChange = { isChecked ->
+                                // Handle checkmark state change
+                                viewModel.setArabicVisibility(isChecked, context)
+                                println("Checkmark is now: ${if (isChecked) "ticked" else "unticked"}")
+                            }
+                        )
+
                     }
                 }
             }
