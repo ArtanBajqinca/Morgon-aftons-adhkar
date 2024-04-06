@@ -2,5 +2,4 @@
 En simpel morgon och aftons dhikr (åkallan) app med översättning och transliteration
 
 
-![Morgon_ _Afton_github](https://github.com/ArtanBajqinca/Morgon-Aftons-dhikr/assets/72929040/eaedfb44-aa17-4e1a-810b-b736cb1c9478)
-
+![Morgon_ _aftons_adhkar](https://github.com/ArtanBajqinca/Morgon-aftons-adhkar/assets/72929040/24b90e98-dbd3-46b9-8d11-b2287b50159d)
