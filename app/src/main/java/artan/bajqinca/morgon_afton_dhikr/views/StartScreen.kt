@@ -60,9 +60,18 @@ fun StartScreen(navController: NavController = rememberNavController()) {
                         }
                     }
                 )
-                StartSettingsTab {
-                    coroutineScope.launch {
-                        drawerState.open()
+                Box(
+                    modifier = Modifier
+                        .zIndex(1f)
+                        .offset {
+                            IntOffset(-60, 200)
+                        }
+                        .align(Alignment.TopStart)
+                ) {
+                    StartSettingsTab {
+                        coroutineScope.launch {
+                            drawerState.open()
+                        }
                     }
                 }
             }
