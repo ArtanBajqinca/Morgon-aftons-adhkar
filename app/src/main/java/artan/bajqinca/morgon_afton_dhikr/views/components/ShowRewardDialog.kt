@@ -21,6 +21,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -38,6 +39,23 @@ fun ShowRewardDialog(
             modifier = Modifier
                 .fillMaxWidth()
         ) {
+
+            // add ribbon and text Belöning when i have time
+
+//            Box(
+//                modifier = Modifier
+//                    .offset { IntOffset(-100, -70) }
+//                    .clickable { onDismiss() }
+//                    .align(Alignment.Center)
+//            ) {
+//                Image(
+//                    painter = painterResource(id = R.drawable.ribbon_icon),
+//                    contentDescription = "ribbon icon",
+//                    modifier = Modifier
+//                        .size(100.dp) // Adjust the size as needed
+//                )
+//            }
+
             Column {
                 Box(
                     modifier = Modifier
@@ -64,7 +82,6 @@ fun ShowRewardDialog(
                 }
                 Spacer(modifier = Modifier.height(10.dp))
             }
-            // Ensure this is the last declared composable in the Box
             Box(
                 modifier = Modifier
                     .offset { IntOffset(50, -50) }
@@ -86,4 +103,13 @@ fun ShowRewardDialog(
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun ShowRewardDialogPreview() {
+    ShowRewardDialog(
+        rewardText = "This is a reward text and is just a preview. For the actual reward text, please use the app.",
+        onDismiss = {}
+    )
 }

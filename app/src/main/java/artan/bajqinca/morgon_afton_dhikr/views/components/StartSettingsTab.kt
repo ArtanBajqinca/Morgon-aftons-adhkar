@@ -25,7 +25,7 @@ fun StartSettingsTab(onClick: () -> Unit) {
     Box(
         modifier = Modifier
             .offset(y = (-90).dp)
-            .offset(x = (-170).dp)
+            .offset(x = (-180).dp)
             .height(48.dp)
             .width(100.dp)
             .shadow(10.dp, shape = RoundedCornerShape(8.dp))

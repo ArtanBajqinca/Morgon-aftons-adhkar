@@ -12,7 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import artan.bajqinca.morgon_afton_dhikr.R
 
 @Composable
 fun ImageBtn(
@@ -29,10 +31,16 @@ fun ImageBtn(
             contentDescription = "Image Button",
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(26.dp)
-                .shadow(10.dp, shape = RoundedCornerShape(20.dp))
-                .clip(RoundedCornerShape(20.dp))
                 .clickable { onClick() }
         )
     }
+}
+
+@Preview
+@Composable
+fun ImageBtnPreview() {
+    ImageBtn(
+        image = R.drawable.afton_image_btn,
+        onClick = {}
+    )
 }

@@ -5,7 +5,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -99,7 +98,9 @@ fun InfoScreen(navController: NavController = rememberNavController()) {
                                 )
                                 Spacer(modifier = Modifier.height(40.dp))
                                 Text(
-                                    text = "Developed by Artan Bajqinca",
+                                    text = "Page under construction",
+                                    modifier = Modifier
+                                        .align(Alignment.CenterHorizontally),
                                     style = TextStyle(
                                         fontFamily = AvenirFontFamily,
                                         fontWeight = FontWeight.W600,

@@ -77,7 +77,7 @@ fun TimesScreen(navController: NavController = rememberNavController()) {
                     titleColor = R.color.dark_orange,
                     icon = R.drawable.morning_icon,
                     iconWidth = 62,
-                    description = "Dens tid är efter fajr-bönen\n" +
+                    description = "Dens tid är efter Fajr-bönen\n" +
                             "fram till soluppgången",
                 )
                 // end of composable named TimeRewardCard
@@ -88,8 +88,8 @@ fun TimesScreen(navController: NavController = rememberNavController()) {
                     titleColor = R.color.dark_orange,
                     icon = R.drawable.afton_icon,
                     iconWidth = 58,
-                    description = "Dens tid är efter asr-bönen\n" +
-                            "fram till solnedgången"
+                    description = "Dens tid är efter Asr-bönen\n" +
+                            "fram till Isha-bönen"
                 )
             }
         }

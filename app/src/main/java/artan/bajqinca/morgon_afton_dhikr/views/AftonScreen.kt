@@ -62,7 +62,7 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
                             AdhkarTitleDesc(
                                 arabicText = "اذكار المساء",
                                 title = "Aftons adhkar",
-                                descriptionText = "Dens tid är efter Asr-bönen fram till solnedgången"
+                                descriptionText = "Dens tid är efter Asr-bönen fram till Isha-bönen"
                             )
                         }
                         itemsIndexed(list) { index, adhkar ->
