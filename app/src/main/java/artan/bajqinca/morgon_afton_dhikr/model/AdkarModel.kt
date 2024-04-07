@@ -7,7 +7,7 @@ data class AdkarModel(
     val en: String,
     val transliteration: String,
     val source: String,
-    val reward: String,
+    val reward: String?,
     val repetition: Int = 0,
     val svKapitel: String = "",
     val arKapitel: String = "",

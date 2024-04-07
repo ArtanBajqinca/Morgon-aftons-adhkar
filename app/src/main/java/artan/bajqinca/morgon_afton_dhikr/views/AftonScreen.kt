@@ -67,30 +67,35 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
                         }
                         itemsIndexed(list) { index, adhkar ->
                             if (!adhkar.arKapitel.isNullOrEmpty()) {
-                                AyatAlKursi(
-                                    number = index + 1,
-                                    swedishTitle = adhkar.svKapitel,
-                                    swedishText = if (viewModel.showTranslation) adhkar.sv else "",
-                                    transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
-                                    arabicTitle = if (viewModel.showArabic) adhkar.arKapitel else "",
-                                    arabicText = if (viewModel.showArabic) adhkar.ar else "",
-                                    numberBackgroundColor = colorResource(id = R.color.blue),
-                                    source = adhkar.source,
-                                    reward = adhkar.reward
-                                ) } else
-                                AdhkarCard(
-                                    number = index + 1, // Use index + 1 as the ID so it starts from 1
-                                    swedishText = if (viewModel.showTranslation) adhkar.sv else "",
-                                    arabicText = if (viewModel.showArabic) adhkar.ar else "",
-                                    transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
-                                    source = adhkar.source,
-                                    reward = adhkar.reward,
-                                    numberBackgroundColor = colorResource(id = R.color.blue),
-                                    svKapitel = adhkar.svKapitel,
-                                    arKapitel = adhkar.arKapitel,
-                                    repetitionText = adhkar.repetitionText,
-                                    repetitionTextArabic = adhkar.repetitionTextArabic
-                                )
+                                adhkar.reward?.let {
+                                    AyatAlKursi(
+                                        number = index + 1,
+                                        swedishTitle = adhkar.svKapitel,
+                                        swedishText = if (viewModel.showTranslation) adhkar.sv else "",
+                                        transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
+                                        arabicTitle = if (viewModel.showArabic) adhkar.arKapitel else "",
+                                        arabicText = if (viewModel.showArabic) adhkar.ar else "",
+                                        numberBackgroundColor = colorResource(id = R.color.blue),
+                                        source = adhkar.source,
+                                        reward = it
+                                    )
+                                }
+                            } else
+                                adhkar.reward?.let {
+                                    AdhkarCard(
+                                        number = index + 1, // Use index + 1 as the ID so it starts from 1
+                                        swedishText = if (viewModel.showTranslation) adhkar.sv else "",
+                                        arabicText = if (viewModel.showArabic) adhkar.ar else "",
+                                        transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
+                                        source = adhkar.source,
+                                        reward = it,
+                                        numberBackgroundColor = colorResource(id = R.color.blue),
+                                        svKapitel = adhkar.svKapitel,
+                                        arKapitel = adhkar.arKapitel,
+                                        repetitionText = adhkar.repetitionText,
+                                        repetitionTextArabic = adhkar.repetitionTextArabic
+                                    )
+                                }
                         }
                         item {
                             EndOfScreen()
