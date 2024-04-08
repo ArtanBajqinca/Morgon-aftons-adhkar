@@ -184,6 +184,7 @@ fun AyatAlKursi(
                 )
             )
             Spacer(modifier = Modifier.width(20.dp))
+            Spacer(modifier = Modifier.weight(1f))
 
             if (reward.isNotEmpty()) {
                 Box(

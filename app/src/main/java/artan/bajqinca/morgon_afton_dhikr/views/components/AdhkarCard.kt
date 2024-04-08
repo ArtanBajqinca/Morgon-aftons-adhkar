@@ -202,6 +202,9 @@ fun AdhkarCard(
 
             Spacer(modifier = Modifier.width(20.dp))
 
+            Spacer(modifier = Modifier.weight(1f))
+
+            // align to End
             if (reward.isNotEmpty()) {
                 Box(
                     modifier = Modifier
@@ -209,7 +212,7 @@ fun AdhkarCard(
                         .background(Color(0xFFBEB283))
                         .clickable { showDialog = true }
                         .padding(horizontal = 10.dp, vertical = 5.dp)
-                        .padding(top = 4.dp),
+                        .padding(top = 4.dp)
                 ) {
                     Text(
                         text = "LÄS BELÖNING".uppercase(),

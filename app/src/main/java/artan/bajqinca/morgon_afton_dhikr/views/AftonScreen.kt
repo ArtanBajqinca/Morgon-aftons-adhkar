@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
@@ -79,7 +80,7 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
                                     reward = adhkar.reward
                                 ) } else
                                 AdhkarCard(
-                                    number = index + 1, // Use index + 1 as the ID so it starts from 1
+                                    number = index + 1,
                                     swedishText = if (viewModel.showTranslation) adhkar.sv else "",
                                     arabicText = if (viewModel.showArabic) adhkar.ar else "",
                                     transliteration = if (viewModel.showTransliteration)  adhkar.transliteration else "",
@@ -101,3 +102,4 @@ fun AftonScreen(navController: NavController = rememberNavController(), viewMode
         }
     }
 }
+
