@@ -12,12 +12,11 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
+import androidx.compose.ui.Alignment.Companion.CenterStart
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
@@ -41,18 +40,15 @@ fun TopNavigationBar(
         modifier = Modifier
             .fillMaxWidth()
             .height(70.dp)
-            .background(colorResource(id = R.color.gray)),
+            .background(colorResource(id = R.color.gray))
+            .padding(horizontal = 24.dp),
         verticalAlignment = Alignment.CenterVertically,
-        horizontalArrangement = Arrangement.Center
     ) {
-        // Left side - Back Icon Box
         Box(
             modifier = Modifier
-                .width(55.dp)
-                .height(75.dp)
                 .clickable { onBackClick() }
-                .weight(1f),
-            contentAlignment = Alignment.Center
+                .align(Alignment.CenterVertically),
+            contentAlignment = Alignment.CenterStart,
         ) {
             Image(
                 painter = painterResource(id = R.drawable.arrow_icon),
@@ -60,28 +56,26 @@ fun TopNavigationBar(
                 modifier = Modifier.size(30.dp)
             )
         }
-        // Center - Title Text
+        Spacer(modifier = Modifier.weight(1f))
+
         Text(
             text = title,
             style = TextStyle(
                 fontFamily = AvenirFontFamily,
-                fontWeight = FontWeight(600),
+                fontWeight = FontWeight.W600,
                 fontSize = 24.sp,
                 color = colorResource(id = R.color.light_beige)
             ),
-            modifier = Modifier
-                .padding(horizontal = 8.dp) // add padding to ensure title doesn't get squished
-                .padding(top = 2.dp)
+            modifier = Modifier.align(Alignment.CenterVertically)
         )
-        // Right side - Menu Icon Box or Spacer if no menu icon is needed
+        Spacer(modifier = Modifier.weight(1f))
+
         if (onMenuClick != {}) {
             Box(
                 modifier = Modifier
-                    .width(55.dp)
-                    .height(75.dp)
                     .clickable { onMenuClick() }
-                    .weight(1f),
-                contentAlignment = Alignment.Center
+                    .align(Alignment.CenterVertically),
+                contentAlignment = Alignment.CenterEnd,
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.setting_icon),
@@ -90,11 +84,11 @@ fun TopNavigationBar(
                 )
             }
         } else {
-            // If there is no menu icon, still occupy the space to keep the title centered
-            Spacer(modifier = Modifier.weight(1f).padding(end = 16.dp))
+            Spacer(modifier = Modifier.width(55.dp))
         }
     }
 }
+
 
 
 @Preview

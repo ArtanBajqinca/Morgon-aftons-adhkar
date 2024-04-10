@@ -46,9 +46,10 @@ fun StartScreen(navController: NavController = rememberNavController()) {
         Column {
             Box(
                 modifier = Modifier
-                    .weight(1f)
                     .fillMaxWidth()
-                    .background(Color(0xFFBE6001)),
+                    .weight(1f)
+                    .background(Color(0xFFBE6001))
+                    .padding(20.dp),
                 contentAlignment = Alignment.Center
             ) {
                 ImageBtn(
@@ -64,7 +65,7 @@ fun StartScreen(navController: NavController = rememberNavController()) {
                     modifier = Modifier
                         .zIndex(1f)
                         .offset {
-                            IntOffset(-60, 200)
+                            IntOffset(-140, 200)
                         }
                         .align(Alignment.TopStart)
                 ) {
@@ -77,9 +78,10 @@ fun StartScreen(navController: NavController = rememberNavController()) {
             }
             Box(
                 modifier = Modifier
-                    .weight(1f)
                     .fillMaxWidth()
-                    .background(colorResource(id = R.color.blue)),
+                    .weight(1f)
+                    .background(colorResource(id = R.color.blue))
+                    .padding(20.dp),
                 contentAlignment = Alignment.Center
             ) {
                 ImageBtn(
