@@ -41,14 +41,13 @@ fun TopNavigationBar(
             .fillMaxWidth()
             .height(70.dp)
             .background(colorResource(id = R.color.gray))
-            .padding(horizontal = 24.dp),
-        verticalAlignment = Alignment.CenterVertically,
     ) {
         Box(
             modifier = Modifier
+                .size(width = 80.dp, height = 70.dp)
                 .clickable { onBackClick() }
                 .align(Alignment.CenterVertically),
-            contentAlignment = Alignment.CenterStart,
+            contentAlignment = Alignment.Center,
         ) {
             Image(
                 painter = painterResource(id = R.drawable.arrow_icon),
@@ -73,14 +72,16 @@ fun TopNavigationBar(
         if (onMenuClick != {}) {
             Box(
                 modifier = Modifier
+                    .size(width = 80.dp, height = 70.dp)
                     .clickable { onMenuClick() }
                     .align(Alignment.CenterVertically),
-                contentAlignment = Alignment.CenterEnd,
+                contentAlignment = Alignment.Center,
             ) {
                 Image(
                     painter = painterResource(id = R.drawable.setting_icon),
                     contentDescription = "Menu icon",
-                    modifier = Modifier.size(32.dp)
+                    modifier = Modifier
+                        .size(32.dp)
                 )
             }
         } else {
