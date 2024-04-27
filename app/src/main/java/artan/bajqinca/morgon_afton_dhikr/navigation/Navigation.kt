@@ -18,7 +18,7 @@ fun Navigation(viewModel: TextOptionsViewModel) {
     val navController = rememberNavController()
 
     NavHost(navController = navController,
-        startDestination = ScreenRoutes.SplashScreen.route,
+        startDestination = ScreenRoutes.StartScreen.route,
     ) {
 
         composable(route = ScreenRoutes.StartScreen.route) {

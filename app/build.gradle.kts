@@ -63,6 +63,7 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.7.5")
     implementation("androidx.media3:media3-common:1.2.0")
     implementation("com.google.code.gson:gson:2.8.8")
+    implementation("androidx.core:core-splashscreen:1.0.1")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$composeVersion")

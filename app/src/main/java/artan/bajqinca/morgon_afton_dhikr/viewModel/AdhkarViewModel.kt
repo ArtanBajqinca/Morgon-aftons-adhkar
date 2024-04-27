@@ -5,10 +5,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import android.content.Context
 import artan.bajqinca.morgon_afton_dhikr.model.AdkarModel
+import kotlinx.coroutines.delay
 
 class AdhkarViewModel(private val context: Context) : ViewModel() {
     private val dataParser = DataParser(context)
-
     private val _eveningAdhkarList = MutableStateFlow<List<AdkarModel>>(emptyList())
     private val _morningAdhkarList = MutableStateFlow<List<AdkarModel>>(emptyList())
     val eveningAdhkarList: StateFlow<List<AdkarModel>> = _eveningAdhkarList
