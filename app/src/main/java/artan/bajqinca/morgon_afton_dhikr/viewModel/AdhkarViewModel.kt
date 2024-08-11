@@ -1,33 +1,45 @@
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.launch
-import android.content.Context
-import artan.bajqinca.morgon_afton_dhikr.model.AdkarModel
-import kotlinx.coroutines.delay
+package artan.bajqinca.morgon_afton_dhikr.viewModel
 
-class AdhkarViewModel(private val context: Context) : ViewModel() {
-    private val dataParser = DataParser(context)
-    private val _eveningAdhkarList = MutableStateFlow<List<AdkarModel>>(emptyList())
-    private val _morningAdhkarList = MutableStateFlow<List<AdkarModel>>(emptyList())
-    val eveningAdhkarList: StateFlow<List<AdkarModel>> = _eveningAdhkarList
-    val morningAdhkarList: StateFlow<List<AdkarModel>> = _morningAdhkarList
+import android.app.Application
+import android.util.Log
+import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.viewModelScope
+import artan.bajqinca.morgon_afton_dhikr.model.AdkarModel
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import kotlinx.coroutines.launch
+import java.io.IOException
+import java.lang.reflect.Type
+
+class AdhkarViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val gson: Gson by lazy { Gson() }
+
+    var morningAdhkarList: List<AdkarModel> = emptyList()
+        private set
+
+    var eveningAdhkarList: List<AdkarModel> = emptyList()
+        private set
 
     init {
-        loadEveningAdhkarList()
-        loadMorningAdhkarList()
-    }
-
-    private fun loadEveningAdhkarList() {
         viewModelScope.launch {
-            _eveningAdhkarList.value = dataParser.getEveningAdhkarList()
+            morningAdhkarList = parseJsonData("adhkar_morgon.json")
+            eveningAdhkarList = parseJsonData("adhkar_afton.json")
         }
     }
 
-    private fun loadMorningAdhkarList() {
-        viewModelScope.launch {
-            _morningAdhkarList.value = dataParser.getMorningAdhkarList()
+    private inline fun <reified T> parseJsonData(filename: String): T {
+        val jsonFileString = getJsonDataFromAsset(filename) ?: return emptyList<T>() as T
+        val type: Type = object : TypeToken<T>() {}.type
+        return gson.fromJson(jsonFileString, type)
+    }
+
+    private fun getJsonDataFromAsset(fileName: String): String? {
+        return try {
+            getApplication<Application>().assets.open(fileName).bufferedReader().use { it.readText() }
+        } catch (ioException: IOException) {
+            Log.e("AdhkarViewModel", "Error reading from $fileName", ioException)
+            null
         }
     }
 }

@@ -30,7 +30,7 @@ fun ImageBtn(
             painter = painterResource(id = image),
             contentDescription = "Image Button",
             modifier = Modifier
-                .fillMaxWidth()
+                .clip(RoundedCornerShape(24.dp))
                 .clickable { onClick() }
         )
     }

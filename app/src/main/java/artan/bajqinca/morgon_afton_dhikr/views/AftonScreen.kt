@@ -1,6 +1,5 @@
 package artan.bajqinca.morgon_afton_dhikr.views
 
-import DataParser
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,14 +8,14 @@ import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.LayoutDirection
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import artan.bajqinca.morgon_afton_dhikr.R
+import artan.bajqinca.morgon_afton_dhikr.viewModel.AdhkarViewModel
 import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarCard
 import artan.bajqinca.morgon_afton_dhikr.views.components.AdhkarTitleDesc
@@ -27,12 +26,15 @@ import artan.bajqinca.morgon_afton_dhikr.views.components.EndOfScreen
 import kotlinx.coroutines.launch
 
 @Composable
-fun AftonScreen(navController: NavController = rememberNavController(), viewModel: TextOptionsViewModel) {
-
+fun AftonScreen(
+    navController: NavController = rememberNavController(),
+    viewModel: TextOptionsViewModel,
+    adhkarViewModel: AdhkarViewModel = viewModel()
+) {
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
     val coroutineScope = rememberCoroutineScope()
-    val dataParser = DataParser(LocalContext.current)
-    val list = dataParser.getEveningAdhkarList()
+
+    val list = adhkarViewModel.eveningAdhkarList
 
     CompositionLocalProvider(LocalLayoutDirection provides LayoutDirection.Rtl) {
         ModalNavigationDrawer(

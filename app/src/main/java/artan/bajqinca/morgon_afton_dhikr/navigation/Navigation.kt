@@ -4,6 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import artan.bajqinca.morgon_afton_dhikr.viewModel.AdhkarViewModel
 import artan.bajqinca.morgon_afton_dhikr.viewModel.TextOptionsViewModel
 import artan.bajqinca.morgon_afton_dhikr.views.StartScreen
 import artan.bajqinca.morgon_afton_dhikr.views.MorgonScreen
@@ -14,7 +15,7 @@ import artan.bajqinca.morgon_afton_dhikr.views.SplashScreen
 import artan.bajqinca.morgon_afton_dhikr.views.TimesScreen
 
 @Composable
-fun Navigation(viewModel: TextOptionsViewModel) {
+fun Navigation(viewModel: TextOptionsViewModel, adhkarViewModel: AdhkarViewModel) {
     val navController = rememberNavController()
 
     NavHost(navController = navController,
