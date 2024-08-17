@@ -1,4 +1,4 @@
-# Morgon & Afton Dhikr
+# Morgon & afton dhikr
 En simpel morgon & aftons _adhkar_ (åkallan) app med översättning och transliteration.
 
 ![Morgon_ _aftons_adhkar](https://github.com/ArtanBajqinca/Morgon-aftons-adhkar/assets/72929040/48305daf-2adb-49a5-8139-c1f572bb4b4c)
