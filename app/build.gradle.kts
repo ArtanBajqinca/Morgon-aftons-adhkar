@@ -1,5 +1,8 @@
+import com.android.build.api.dsl.Packaging
+
 plugins {
     id("com.android.application")
+    id("com.google.android.gms.oss-licenses-plugin")
     id("org.jetbrains.kotlin.android")
 }
 
@@ -27,20 +30,31 @@ android {
     }
 
     buildTypes {
+        debug {
+            isMinifyEnabled = false
+            isDebuggable = false
+
+            // Ensure that licenses are generated for debug builds
+            fun Packaging.() {
+                resources.excludes.add("META-INF/LICENSE*")
+            }
+        }
         release {
             isMinifyEnabled = false
-            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
+            isDebuggable = false
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_19
-        targetCompatibility = JavaVersion.VERSION_19
+        sourceCompatibility = JavaVersion.VERSION_20
+        targetCompatibility = JavaVersion.VERSION_20
     }
     kotlinOptions {
-        jvmTarget = "19"
-    }
-    packagingOptions {
-        resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        jvmTarget = "20"
     }
 }
 
@@ -64,6 +78,8 @@ dependencies {
     implementation("androidx.media3:media3-common:1.2.0")
     implementation("com.google.code.gson:gson:2.8.8")
     implementation("androidx.core:core-splashscreen:1.0.1")
+    implementation("com.google.android.gms:play-services-oss-licenses:17.0.0")
+    implementation("androidx.appcompat:appcompat:1.7.0")
     debugImplementation("androidx.compose.ui:ui-tooling:$composeVersion")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:$composeVersion")
     debugImplementation("androidx.compose.ui:ui-test-manifest:$composeVersion")
